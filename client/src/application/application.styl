@@ -1,0 +1,540 @@
+@import "variables"
+
+/* GLOBAL */
+*
+  outline none !important
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,500,300italic,500italic,700italic,900,300)
+
+html
+  font-size 62.5%
+
+body
+  font-family $font-family
+  margin 0
+
+html, body, #container, #content, #content > div
+  height calc(100% - 32px)
+
+textarea
+  resize vertical
+
+select, input[type="text"]
+  width 100%
+
+.as-block
+  display block
+  width 100%
+
+.as-table
+  display table
+  width 100%
+  height 100%
+
+.as-table-cell
+  display table-cell
+  vertical-align middle
+
+body .text-center
+  text-align center
+
+body .text-right
+  text-align right
+
+body .nomargin
+  margin 0
+
+body .m-vert-20
+  margin 20px 0
+
+body .m-b-0
+  margin-bottom 0
+
+body .m-t-10
+  margin-top 10px
+
+body .m-t-20
+  margin-top 20px
+
+body .m-t-40
+  margin-top 40px
+
+body .m-b-20
+  margin-bottom 20px
+
+body .m-r-15
+  margin-right 15px
+
+body .width-full
+  width 100%
+
+body .min-width-940
+  min-width 940px
+
+.glyphicon-refresh-animate
+  -animation spin 1s infinite linear
+  -ms-animation spin 1s infinite linear
+  -webkit-animation spinw 1s infinite linear
+  -moz-animation spinm 1s infinite linear
+
+@keyframes spin
+  from { transform: scale(1) rotate(0deg)}
+  to { transform: scale(1) rotate(360deg)}
+
+@-webkit-keyframes spinw
+  from { -webkit-transform: rotate(0deg)}
+  to { -webkit-transform: rotate(360deg)}
+
+@-moz-keyframes spinm
+  from { -moz-transform: rotate(0deg)}
+  to { -moz-transform: rotate(360deg)}
+
+.text-loader-right
+  margin-right 5px
+
+
+/* LAYOUTS */
+.text-error
+  display none
+
+.has-error
+  .control-label
+    margin-top 5px
+    line-height 18px
+    font-weight 500
+  > button
+    border-color $color-error
+  > .text-error
+    display inline-block
+    color $color-error !important
+
+.text-danger
+  > a
+    color $color-error !important
+
+.mgr-validation-messages
+  font-size 12px
+  .mgr-invalid
+    color $color-error !important
+  .mgr-valid
+    color $color-success !important
+
+.alert
+  > .glyphicon
+    margin-right 5px
+
+body table.table
+  td
+    line-height 34px
+
+.text-ellipsis
+  overflow hidden
+  text-overflow ellipsis
+
+form .form-control
+  border-radius $border-radius
+
+.list-hash li:not(:last-child):after
+  content "/"
+  margin-left 0.75em
+
+
+/* TABLES */
+.table
+
+  &.ng-table
+    th.sortable.sort-desc,
+    th.sortable.sort-asc
+      background-color #e5e5e5
+
+  td
+    &.price
+      min-width 50px
+
+.as-table
+  &-cell:first-child
+    strong
+      padding-left 8px
+
+
+/* Filters */
+.filter-cell
+  position relative
+  padding-right 22px
+  .filter-box
+    position absolute
+    top -4px
+    right 0
+    i
+      display block
+      font-size 12px
+      cursor pointer
+      &:active
+        color $color-link
+      &.active
+        color #ccc
+
+
+/* Interface */
+button
+  &.glyphicon-search
+    top 0
+    width 40px
+    height 34px
+  &.transparent
+    background-color transparent
+    border none
+
+label
+  &.required
+    &:after
+      content " *"
+      font-size 12px
+      color #a94442
+
+.dropdown
+  &-row
+    .dropdown,
+    .dropdown-toggle,
+    .dropdown-menu
+      width 100%
+    .dropdown-menu
+      max-height 200px
+      overflow-y auto
+    .dropdown-toggle
+      color #333 !important
+      border 1px solid #ccc !important
+      background transparent !important
+      text-align left
+      .caret
+        float right
+        margin-top 8px
+        color #333
+  .group-category,
+  .item-subcategory
+    .category-name,
+    > a
+      display block
+      white-space nowrap
+      text-overflow ellipsis
+  .group-category
+    padding 5px 15px
+    overflow hidden
+    .category-name
+      position relative
+      font-weight 700
+      background-color #eee
+      &:before
+        content ""
+        position absolute
+        z-index -1
+        top 0
+        left -15px
+        width 150%
+        height 100%
+        background-color #eee
+  .item-subcategory
+    margin-left 15px
+    > a
+      padding 3px 0
+      text-decoration none
+      &.active, &:hover
+        position relative
+        color #fff
+        background-color #337ab7
+        &:before
+          content ""
+          position absolute
+          z-index -1
+          top 0
+          left -30px
+          width 150%
+          height 100%
+          background-color #337ab7
+      &.active
+        background-color #337ab7
+        &:hover, &:hover:before
+          background-color #337ab7
+      &:hover, &:hover:before
+        color #333
+        background-color #d0deea
+
+
+/* BLOCK */
+.as-modal
+  border 2px solid #ccc
+  border-radius 5px
+  box-shadow 3px 3px 5px rgba(0,0,0,0.55)
+
+  .part-header,
+  .part-footer
+    position relative
+    padding 15px 0
+    text-align center
+    overflow-x hidden
+    &:after
+      content ""
+      position absolute
+      right -15px
+      left -15px
+  .part-header
+    &:after
+      bottom 0
+      border-bottom 1px solid #e5e5e5
+    h3
+      margin 0
+  .part-footer
+    &:after
+      top 0
+      border-top 1px solid #e5e5e5
+
+
+/* MODAL */
+.modal
+  text-align center
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog
+  display inline-block
+  text-align left
+  vertical-align middle
+
+.modal-vertical-align
+  display table
+  width 100%
+  height 100%
+
+.modal-vertical-align-cell
+  display table-cell
+  vertical-align middle
+
+
+/* Pagination */
+.pagination-block
+  text-align center
+
+
+/*
+// Directives
+/*
+/* Toggle-switch */
+.toggle-switch
+  height 34px
+  .toggle-switch-animate
+    height 100%
+    span
+      line-height 24px
+
+
+/* Animation */
+.animate-show
+  display block!important
+  -webkit-transition 0.5s linear all
+  transition 0.5s linear all
+
+.animate-hidden
+  opacity 0
+  -webkit-transition 0.5s linear all
+  transition 0.5s linear all
+  -webkit-transition-delay 0.5s
+  transition-delay 0.5s
+
+.centered
+  margin 0 auto
+  width 80%
+
+
+/* Scrollbar */
+::-webkit-scrollbar
+  width 8px
+  height 8px
+
+::-webkit-scrollbar-button
+  width 0
+  height 0
+
+::-webkit-scrollbar-thumb
+  border 1px solid #ccc
+  border-radius 50px
+  background #f5f5f5
+
+::-webkit-scrollbar-thumb:hover
+  background #fff
+
+::-webkit-scrollbar-thumb:active
+  background #dfdfdf
+
+::-webkit-scrollbar-track
+  background #ababab
+  border 1px solid #fff
+  border-radius 50px
+
+::-webkit-scrollbar-track:hover
+  background #666
+
+::-webkit-scrollbar-track:active
+  background #333
+
+::-webkit-scrollbar-corner
+  background transparent
+
+
+/*
+// PAGES
+*/
+/* MANAGE PAGES */
+.manage-page
+  overflow-x auto
+
+  .search-row
+    position relative
+  #search
+    padding-right 35px
+    border-radius 3px
+    & + span
+      position absolute
+      top 0
+      right 25px
+      .glyphicon-search
+        position relative
+        display block
+        width 32px
+        height 32px
+        line-height 32px
+        font-size 16px
+        cursor text
+
+  .table
+    thead
+      th
+        font-size 12px
+
+    tbody
+      font-size 12px
+
+  img
+    max-width 100%
+
+  .buttons-filters
+    .dropdown-menu
+      a
+        &.active, &.active:hover
+          background #ccc
+          cursor default
+
+  button[id^='add-'].glyphicon-plus
+    margin-left 15px
+    width 34px
+    background #337ab7
+    &:before
+      position relative
+      top -1px
+      left -3px
+      color #fff
+
+  .table-container
+    overflow hidden
+    border-radius 5px
+
+    .glyphicon
+      &-plus, &-minus, &-trash, &-ok, &-pencil, &-remove
+        cursor pointer
+        &:active
+          color $color-link
+
+    .col
+      &-actions
+        .glyphicon:last-child
+          width 26px
+
+    .toggle-text
+      position absolute
+      top 0
+      right -14px
+
+    .show-text
+      height auto
+      max-height inherit
+      overflow visible
+      .text
+        margin-top 23px
+        display inline-block
+        line-height 18px
+    .title-brand
+      display block
+
+  table
+    th
+      background-color #ccc
+    td
+      > div
+        position relative
+        height 64px
+        max-height 64px
+        line-height 64px
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+      &.col-brand
+        > div
+          line-height 32px
+      &.col-text > div,
+      &.col-actions > div
+        white-space normal
+    .col-image
+      .has-image, .no-image
+        border 1px solid #ccc
+        color #ccc
+        border-radius 3px
+        line-height 60px
+      img
+        height 100%
+    .col-actions
+      .rows-2
+        line-height 36px
+      .glyphicon
+        font-size 18px
+        &-comment
+          margin-left 5px
+          &.has-comments
+            cursor pointer
+          &:before
+            content ""
+          &:after
+            content "\e111"
+            position relative
+            top 2px
+            margin-left 4px
+      .status
+        &-rejected
+          .disapprove
+            opacity 0.5
+            cursor default
+            &:active
+              color inherit
+        &-accepted
+          .approve
+            opacity 0.5
+            cursor default
+            &:active
+              color inherit
+      .approved
+        color #8fc800
+
+
+/*
+// RESPONSE
+*/
+/* GLOBAL */
+@media (max-width: 769px)
+  body
+    .sm-m-b-10
+      margin-bottom 10px

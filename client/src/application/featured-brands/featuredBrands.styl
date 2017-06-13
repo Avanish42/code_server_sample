@@ -1,0 +1,44 @@
+#featured-brands
+
+  .waiting-reviews
+    margin-top 40px
+
+    .part-body
+      margin-top 10px
+
+    .search-result
+      margin-top -12px
+      a:hover
+        background #d0deea
+
+    .row
+      &-current-brand
+        overflow-x hidden
+        .photo-box
+          img
+            max-width 100%
+            max-height 130px
+        .as-table
+          height 130px
+        a
+          display inline-block
+          white-space nowrap
+          overflow hidden
+          text-overflow ellipsis
+        .glyphicon
+          &-remove
+            top 2px
+            margin-left 3px
+
+
+/*
+// RESPONSE
+*/
+@media (max-width: 769px)
+  #featured-brands
+
+    .waiting-reviews
+
+      .row
+        &-current-brand
+          text-align center

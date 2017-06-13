@@ -1,0 +1,19 @@
+{
+  "name": "AccessTokenModel",
+  "base": "AccessToken",
+  "properties": {
+    "refreshToken": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

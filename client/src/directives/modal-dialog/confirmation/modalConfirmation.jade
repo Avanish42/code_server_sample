@@ -1,0 +1,12 @@
+#modal-dialog_confirmation
+  .modal-header
+    h3.modal-title {{modalConfirmationCtrl.title}}
+  .modal-body
+    p {{modalConfirmationCtrl.context}}
+    ul(ng-if="modalConfirmationCtrl.errors").error-msg
+      li(ng-repeat="error in modalConfirmationCtrl.errors")
+        span.text-danger {{error}}
+
+  .modal-footer.text-center
+    button(type="button" ng-click="modalConfirmationCtrl.ok()").btn.btn-success Ok
+    button(type="button" ng-click="modalConfirmationCtrl.cancel()").btn.btn-warning Cancel

@@ -1,0 +1,246 @@
+{
+  "name": "UserModel",
+  "plural": "users",
+  "base": "User",
+  "hidden": [
+    "password",
+    "accountRelations",
+    "accessToken",
+    "devices"
+  ],
+  "properties": {
+    "username": {
+      "type": "string",
+      "required": true,
+      "index": {
+        "unique": true
+      }
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "index": {
+        "unique": true
+      }
+    },
+    "status": {
+      "type": "Number",
+      "default": 1
+    },
+    "accountRelations": {
+      "type": "object",
+      "default": {}
+    },
+    "incomeRange": {
+      "type": "string"
+    },
+    "dob": {
+      "type": "number"
+    },
+    "gender": {
+      "type": "number"
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "photo": {
+      "type": "string"
+    },
+    "settings": {
+      "type": "object",
+      "default": {
+        "devices": {}
+      }
+    },
+    "meta": {
+      "type": "object",
+      "default": {}
+    },
+    "address": {
+      "type": "object",
+      "default": {}
+    },
+    "achievements": {
+      "type": "array",
+      "default": ["ach002"]
+    },
+    "followers": {
+      "type": "array",
+      "default": []
+    },
+    "following": {
+      "type": "array",
+      "default": []
+    },
+    "likes": {
+      "type": "array",
+      "default": []
+    },
+    "brands": {
+      "type": "array",
+      "default": []
+    },
+    "categories": {
+      "type": "array",
+      "default": []
+    },
+    "subcategories": {
+      "type": "array",
+      "default": []
+    },
+    "reviews": {
+      "type": "array",
+      "default": []
+    },
+    "comments": {
+      "type": "array",
+      "default": []
+    },
+    "devices": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessTokenModel",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    },
+    "facebookProfile": {
+      "type": "belongsTo",
+      "model": "FacebookProfile",
+      "foreignKey": "facebookId"
+    },
+    "googleProfile": {
+      "type": "belongsTo",
+      "model": "GoogleProfile",
+      "foreignKey": "googleId"
+    },
+    "twitterProfile": {
+      "type": "belongsTo",
+      "model": "TwitterProfile",
+      "foreignKey": "twitterId"
+    },
+    "linkedinProfile": {
+      "type": "belongsTo",
+      "model": "LinkedinProfile",
+      "foreignKey": "linkedinId"
+    },
+    "userHistory": {
+      "type": "belongsTo",
+      "model": "UserHistory",
+      "foreignKey": "userId"
+    },
+    "brand": {
+      "type": "hasMany",
+      "model": "Brand",
+      "foreignKey": "authorId"
+    },
+    "review": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": "authorId"
+    },
+    "comment": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "_getRole"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "_trigger"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW",
+      "property": "updateAttributes"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW",
+      "property": "_changeCredentials"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW",
+      "property": "_deleteUserRelations"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "_setSystemNotifications"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "_resetPasswordRequest"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "_setPasswordByToken"
+    }
+  ],
+  "methods": {}
+}

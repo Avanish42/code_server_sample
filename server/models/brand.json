@@ -1,0 +1,115 @@
+{
+  "name": "Brand",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "authorId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "index": {
+        "unique": true
+      },
+      "max": 35
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "subcategory": {
+      "type": "string",
+      "required": true
+    },
+    "countries": {
+      "type": "array",
+      "default": []
+    },
+    "address": {
+      "type": "object"
+    },
+    "location": {
+      "type": "GeoPoint"
+    },
+    "state": {
+      "type": "string",
+      "default": ""
+    },
+    "suggested": {
+      "type": "object",
+      "default": {}
+    },
+    "trendOne": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "max": 500
+    },
+    "rejectReason": {
+      "type": "string"
+    },
+    "avgRate": {
+      "type": "number"
+    },
+    "avgRateSum": {
+      "type": "number",
+      "default": 0
+    },
+    "reviews": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": "authorId"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "categoryId"
+    },
+    "subcategory": {
+      "type": "belongsTo",
+      "model": "Subcategory",
+      "foreignKey": "subcategoryId"
+    },
+    "getReviews": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {}
+}

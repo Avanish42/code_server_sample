@@ -1,0 +1,6 @@
+.status-wall
+  .status-wall-inner
+    .status-wall-container(ng-class="statusWallCtrl.type === 'success' ? 'status-success' : 'status-failed'")
+      .status
+        .glyphicon.glyphicon-ok
+      .status-text {{statusWallCtrl.text}}

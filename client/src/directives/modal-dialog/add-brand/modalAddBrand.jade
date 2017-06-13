@@ -1,0 +1,56 @@
+#modal-dialog_add-brand
+
+  status-wall(ng-if="modalAddBrandCtrl.onComplete.success" type="'success'" text="modalAddBrandCtrl.onComplete.text" cb="modalAddBrandCtrl.onComplete.cb" duration="modalAddBrandCtrl.onComplete.duration")
+
+  form(name="addBrandForm" role="form" novalidate ng-submit="modalAddBrandCtrl.submit()")
+    .modal-header
+      h3.modal-title {{modalAddBrandCtrl.title}}
+    .modal-body
+
+      .row
+        .form-group.col-sm-6.clearfix
+          label(for="brand-title").required Name
+          input(type="text" name="name" required ng-minlength="modalAddBrandCtrl.config.validation.brand.title.minLength" ng-maxlength="modalAddBrandCtrl.config.validation.brand.title.maxLength" ng-model="modalAddBrandCtrl.brandTitle")#brand-title.form-control
+          mgr-validation(form="addBrandForm" field="addBrandForm.name" validators="modalAddBrandCtrl.validators.brandTitle")
+
+        .form-group.col-sm-6.clearfix
+          label.required Category and subcategory
+          .dropdown-row
+            .btn-group.dropdown(dropdown)
+              button(type="button" dropdown-toggle)#set-subcategory.btn.btn-primary.dropdown-toggle {{modalAddBrandCtrl.currentSubcategory.title || '-'}}
+                span.caret &nbsp;
+              ul.list-unstyled.dropdown-menu.list
+                li(ng-repeat="(categoryName, subcategories) in modalAddBrandCtrl.catSubcatList").group-category
+                  span.category-name {{categoryName}}
+                  ul.list-unstyled
+                    li(ng-repeat="subcategory in subcategories").item-subcategory
+                      a(href="javascript:void(0)" ng-class="{active: subcategory.statusActive}" ng-click="modalAddBrandCtrl.setSubcategory(subcategory)") {{subcategory.title}}
+          ul(ng-if="modalAddBrandCtrl.errors.subcategory").mgr-validation-messages
+            li(ng-repeat="error in modalAddBrandCtrl.errors.subcategory track by $index").mgr-invalid
+              p {{error}}
+
+      .form-group.m-b-0.clearfix.photo-row(ng-class="{'has-error': modalAddBrandCtrl.errors.photo}")
+        .photo-box(ng-if="modalAddBrandCtrl.uploadedPhoto")
+          img(src="{{modalAddBrandCtrl.uploadedPhoto.$ngfBlobUrl + (modalAddBrandCtrl.uploadedPhoto.$ngfBlobUrl.indexOf('blob:') === -1 ? '?size=m' : '')}}").photo-item#brand-photo
+        button(type="file" ngf-select ngf-drop ngf-pattern="modalAddBrandCtrl.config.brandPattern" ngf-min-width="modalAddBrandCtrl.config.validation.brand.photo.minWidth" ngf-min-height="modalAddBrandCtrl.config.validation.brand.photo.minHeight" ngf-max-size="modalAddBrandCtrl.config.validation.brand.photo.maxSize" ngf-change="modalAddBrandCtrl.uploadPhoto($file, $invalidFiles)")#add-photo.glyphicon.glyphicon-camera &nbsp;
+        ul(ng-if="modalAddBrandCtrl.errors.photo").mgr-validation-messages
+          li(ng-repeat="error in modalAddBrandCtrl.errors.photo track by $index").mgr-invalid
+            p {{error}}
+        progressbar(ng-if="modalAddBrandCtrl.uploadProgress.pt || modalAddBrandCtrl.photoUploadError" value="modalAddBrandCtrl.uploadProgress.pt || modalAddBrandCtrl.uploadError.msg" type="{{!modalAddBrandCtrl.uploadError.msg ? 'success' : 'warning'}}")
+          span(ng-if="modalAddBrandCtrl.uploadProgress.pt && !modalAddBrandCtrl.uploadError.msg") {{modalAddBrandCtrl.uploadProgress.pt}}%
+          span(ng-if="modalAddBrandCtrl.uploadError.msg") {{modalAddBrandCtrl.uploadError.msg}}
+
+      .form-group.m-t-20.m-b-0
+        label Summary
+        textarea(name="brandText" ng-model="modalAddBrandCtrl.brandText" ng-maxlength="modalAddBrandCtrl.config.validation.brand.text.maxLength")#brand-text.form-control
+        mgr-validation(form="addBrandForm" field="addBrandForm.brandText" validators="modalAddBrandCtrl.validators.brandText")
+
+      .m-t-20.errors-row(ng-if="modalAddBrandCtrl.errors.any")
+        .alert.alert-danger(role="alert" ng-repeat="error in modalAddBrandCtrl.errors.any track by $index")
+          span.glyphicon.glyphicon-exclamation-sign(aria-hidden="true")
+          span.sr-only Error:
+          | {{error}}
+
+    .modal-footer.text-center
+      button(type="submit" ng-disabled="addBrandForm.$invalid").btn.btn-success Save
+      button(type="button" ng-click="modalAddBrandCtrl.cancel()").btn.btn-warning Cancel

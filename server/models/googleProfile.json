@@ -1,0 +1,35 @@
+{
+  "name": "GoogleProfile",
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "accessToken"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "photoUrl": {
+      "type": "string"
+    },
+    "expiredAt": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

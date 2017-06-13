@@ -1,0 +1,57 @@
+#modal-dialog_screen-brand
+
+  status-wall(ng-if="modalScreenBrandCtrl.onComplete.success" type="'success'" text="modalScreenBrandCtrl.onComplete.text" cb="modalScreenBrandCtrl.onComplete.cb" duration="modalScreenBrandCtrl.onComplete.duration")
+
+  form(name="aboutBrandForm" role="form" novalidate)
+    .modal-header
+      h3.modal-title {{modalScreenBrandCtrl.title}}
+    .modal-body
+
+      .row
+        .col-sm-6
+          .photo-box(ng-if="modalScreenBrandCtrl.brand.image")
+            img(src="{{modalScreenBrandCtrl.brand.image}}").photo-item#brand-photo
+        .form-group.col-sm-6
+          label(for="title") Name
+          input(type="text" name="name" disabled ng-model="modalScreenBrandCtrl.brand.title")#title.form-control
+        .form-group.col-sm-6
+          label(for="rate") Average Rate
+          input(type="text" name="rate" disabled ng-model="modalScreenBrandCtrl.brand.avgRate")#rate.form-control
+
+      .form-group
+        label(for="text") Average Rate
+        textarea(name="text" disabled ng-model="modalScreenBrandCtrl.brand.text")#text.form-control
+
+      .form-group(ng-if="modalScreenBrandCtrl.brand.reviews.length")
+        .reviews-list
+          .table-head
+            .col-id ID
+            .col-date Date
+            .col-user User
+            .col-rate Rate
+            .col-actions
+              span Position
+              a(href="javascript:void(0)" ng-click="modalScreenBrandCtrl.resetPositions()").reset-position Reset
+          .table-body
+            table.table.table-striped.table-bordered.table-hover
+              tbody
+                tr(ng-repeat="review in modalScreenBrandCtrl.brand.reviews")
+                  td.col-id
+                    div
+                      span(title="{{review.id}}") {{review.id}}
+                  td.col-date
+                    div
+                      span(title="{{review.createdAt | amDateFormat:'DD.MM.YYYY'}}") {{review.createdAt | amDateFormat:'DD.MM.YYYY'}}
+                  td.col-user
+                    div
+                      span(title="{{review.user.username}}") {{review.user.username}}
+                  td.col-rate
+                    div
+                      span(title="{{review.rate}}") {{review.rate}}
+                  td.col-actions
+                    div
+                      input(type="number" value="{{review.position || 0}}" ng-model="review.position" ng-change="modalScreenBrandCtrl.changePosition(review)" ng-model-options="{debounce: 500}").form-control
+
+    .modal-footer.text-center
+      button(type="button" ng-click="modalScreenBrandCtrl.editBrand()").btn.btn-success Edit
+      button(type="button" ng-click="modalScreenBrandCtrl.cancel()").btn.btn-warning Close

@@ -1,0 +1,34 @@
+.status-wall
+  z-index 5
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  background-color #fff
+  &-container
+    display table-cell
+    vertical-align middle
+    &.status-success
+      .status
+        margin 0 auto
+        width 160px
+        height 160px
+        text-align center
+        font-size 70px
+        line-height 160px
+        border-radius 120px
+
+        background-color #5cb85c
+  &-inner
+    display table
+    width 100%
+    height 100%
+    color #fff
+
+  .status-text
+    margin 30px auto 0
+    width 320px
+    text-align center
+    font-size 18px;
+    color #333

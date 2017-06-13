@@ -1,0 +1,44 @@
+{
+  "name": "IncomeRange",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "required": true
+    },
+    "ranges": {
+      "type": ["string"]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findById"
+    }
+  ],
+  "methods": {}
+}

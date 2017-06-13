@@ -1,0 +1,27 @@
+#modal-dialog_reject-brand
+
+  form(name="rejectBrandForm" role="form" novalidate ng-submit="modalRejectBrandCtrl.reject()")
+    .modal-header
+      h3.modal-title {{modalRejectBrandCtrl.title}}
+    .modal-body
+
+      .form-group.clearfix
+        input(type="radio" name="brand-exists" ng-model="modalRejectBrandCtrl.brandExists" value="true" ng-value="true")#brand-exists
+        label(for="brand-exists") The brand already exists in the system
+
+      .form-group(ng-if="modalRejectBrandCtrl.brandExists")
+        label(for="exist-brand") Existing brand:
+        input(type="text" autocomplete="off" ng-model="modalRejectBrandCtrl.brandReason.title" ng-model-options="{debounce: modalRejectBrandCtrl.searchDelay}" ng-change="modalRejectBrandCtrl.searchMatches(modalRejectBrandCtrl.brandReason.title)")#exist-brand.form-control
+
+        .matches-list.m-t-10(ng-if="modalRejectBrandCtrl.brandMatches.length && !modalRejectBrandCtrl.brandReason.id")
+          ul.list-unstyled
+            li(ng-repeat="item in modalRejectBrandCtrl.brandMatches")
+              a(ng-click="modalRejectBrandCtrl.setBrand(item, $event)" href="javascript:void(0)") {{item.title}}
+
+      .form-group.clearfix
+        input(type="radio" name="brand-exists" ng-model="modalRejectBrandCtrl.brandExists" value="false" ng-value="false")#brand-not-exists
+        label(for="brand-not-exists") The brand doesn`t exists
+
+    .modal-footer.text-center
+      button(type="submit").btn.btn-success Reject
+      button(type="button" ng-click="modalRejectBrandCtrl.cancel()").btn.btn-warning Cancel

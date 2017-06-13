@@ -1,0 +1,218 @@
+[
+  {
+    "id": "review01",
+    "text": "Bad beverage",
+    "address": {
+      "country": "Russia",
+      "city" : "Novosibirsk"
+    },
+    "location": {
+      "lat" : 55.032154,
+      "lng" : 82.922745
+    },
+    "rate": 5,
+    "images": ["/Containers/reviews/download/review-beverage-coca_cola.jpg"],
+    "likes": ["user02", "user03"],
+    "comments": ["comment01", "comment04", "comment08", "comment11"],
+    "hashtags":  null,
+    "authorId": "user04",
+    "categoryId": "cat01",
+    "subcategoryId": "subcat01",
+    "brandId": "brand01",
+    "state": "new",
+    "createdAt": 1455184858294,
+    "modifiedAt": 1455184858294
+  },
+  {
+    "id": "review02",
+    "text": "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33",
+    "address": {
+      "country": "Russia",
+      "city" : "Novosibirsk"
+    },
+    "location": {
+      "lat" : 55.032154,
+      "lng" : 82.922745
+    },
+    "rate": 4,
+    "images": ["/Containers/reviews/download/review-beverage-fanta.jpg"],
+    "likes": ["user02", "user03", "user04"],
+    "comments": ["comment02", "comment05", "comment12"],
+    "hashtags":  null,
+    "authorId": "user02",
+    "categoryId": "cat01",
+    "subcategoryId": "subcat01",
+    "brandId": "brand02",
+    "state": "new",
+    "createdAt": 1454174568773,
+    "modifiedAt": 1454174568773
+  },
+  {
+    "id": "review03",
+    "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old",
+    "address": {
+      "country": "Russia",
+      "city" : "Iskitim"
+    },
+    "location": {
+      "lat" : 54.601506,
+      "lng" : 83.397217
+    },
+    "rate": 4,
+    "images": [],
+    "likes": ["user02"],
+    "comments": [],
+    "hashtags":  null,
+    "authorId": "user02",
+    "categoryId": "cat01",
+    "subcategoryId": "subcat01",
+    "brandId": "brand03",
+    "state": "new",
+    "createdAt": 1453172632491,
+    "modifiedAt": 1453172632491
+  },
+  {
+    "id": "review04",
+    "text": "So cool!",
+    "address": {
+      "country": "Russia",
+      "city" : "Barnaul"
+    },
+    "location": {
+      "lat" : 53.340713,
+      "lng" : 83.787231
+    },
+    "rate": 3,
+    "images": ["/Containers/reviews/download/review-food-mcdonalds.jpg"],
+    "likes": [],
+    "comments": ["comment03"],
+    "hashtags":  null,
+    "authorId": "user02",
+    "categoryId": "cat02",
+    "subcategoryId": "subcat04",
+    "brandId": "brand04",
+    "state": "new",
+    "createdAt": 1453172446563,
+    "modifiedAt": 1453172446563
+  },
+  {
+    "id": "review05",
+    "text": "Very Nice",
+    "address": {
+      "country": "Russia",
+      "city" : "Barnaul"
+    },
+    "location": {
+      "lat" : 53.340713,
+      "lng" : 83.787231
+    },
+    "rate": 2,
+    "images": ["/Containers/reviews/download/review-food-burger_king.jpg"],
+    "likes": [],
+    "comments": ["comment13"],
+    "hashtags":  null,
+    "authorId": "user03",
+    "categoryId": "cat02",
+    "subcategoryId": "subcat04",
+    "brandId": "brand05",
+    "state": "new",
+    "createdAt": 1452172227884,
+    "modifiedAt": 1452172227884
+  },
+  {
+    "id": "review06",
+    "text": "Very BAD",
+    "address": {
+      "country": "Russia",
+      "city" : "Tomsk"
+    },
+    "location": {
+      "lat" : 56.471594,
+      "lng" : 84.973755
+    },
+    "rate": 5,
+    "images": ["/Containers/reviews/download/review-food-kfc.jpg"],
+    "likes": [],
+    "comments": ["comment09", "comment10", "comment14"],
+    "hashtags":  null,
+    "authorId": "user02",
+    "categoryId": "cat02",
+    "subcategoryId": "subcat04",
+    "brandId": "brand06",
+    "state": "new",
+    "createdAt": 1451144387869,
+    "modifiedAt": 1451144387869
+  },
+  {
+    "id": "review07",
+    "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+    "address": {
+      "country": "Russia",
+      "city" : "Tomsk"
+    },
+    "location": {
+      "lat" : 56.514048,
+      "lng" : 85.031433
+    },
+    "rate": 1,
+    "images": ["/Containers/reviews/download/review-food-papa-johns.jpg"],
+    "likes": ["user02", "user04"],
+    "comments": ["comment06", "comment07"],
+    "hashtags":  null,
+    "authorId": "user03",
+    "categoryId": "cat02",
+    "subcategoryId": "subcat04",
+    "brandId": "brand07",
+    "state": "new",
+    "createdAt": 1450143387869,
+    "modifiedAt": 1450143387869
+  },
+  {
+    "id": "review08",
+    "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
+    "address": {
+      "country": "Russia",
+      "city" : "Novosibirsk"
+    },
+    "location": {
+      "lat" : 55.032154,
+      "lng" : 82.922745
+    },
+    "rate": 4,
+    "images": ["/Containers/reviews/download/review-beverage-coca_cola.jpg"],
+    "likes": ["user02", "user03"],
+    "comments": [],
+    "hashtags":  null,
+    "authorId": "user04",
+    "categoryId": "cat01",
+    "subcategoryId": "subcat01",
+    "brandId": "brand01",
+    "state": "new",
+    "createdAt": 1449184858294,
+    "modifiedAt": 1449184858294
+  },
+  {
+    "id": "review09",
+    "text": "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more ",
+    "address": {
+      "country": "Russia",
+      "city" : "Novosibirsk"
+    },
+    "location": {
+      "lat" : 55.032154,
+      "lng" : 82.922745
+    },
+    "rate": 4,
+    "images": ["/Containers/reviews/download/review-beverage-coca_cola.jpg"],
+    "likes": ["user02", "user03"],
+    "comments": [],
+    "hashtags":  null,
+    "authorId": "user04",
+    "categoryId": "cat01",
+    "subcategoryId": "subcat01",
+    "brandId": "brand01",
+    "state": "new",
+    "createdAt": 1448184858294,
+    "modifiedAt": 1448184858294
+  }
+]

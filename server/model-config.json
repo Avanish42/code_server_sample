@@ -1,0 +1,113 @@
+{
+  "_meta": {
+    "sources": [
+      "./models",
+      "/../node_modules/loopback-component-push/models"
+    ]
+  },
+  "Category": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Subcategory": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Brand": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Review": {
+    "dataSource": "db",
+    "public": true
+  },
+  "UserModel": {
+    "dataSource": "db",
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },
+  "Email": {
+    "dataSource": "emailBridge",
+    "public": true
+  },
+  "Push": {
+    "public": true,
+    "dataSource": "push"
+  },
+  "Application": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Installation": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Notification": {
+    "dataSource": "db",
+    "public": false
+  },
+  "FacebookProfile": {
+    "dataSource": "db",
+    "public": true
+  },
+  "GoogleProfile": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TwitterProfile": {
+    "dataSource": "db",
+    "public": true
+  },
+  "LinkedinProfile": {
+    "dataSource": "db",
+    "public": true
+  },
+  "UserHistory": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Comment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AccessTokenModel": {
+    "dataSource": "db"
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": true
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Achievement": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "filestorage",
+    "public": true
+  },
+  "SystemNotification": {
+    "dataSource": "db",
+    "public": true
+  },
+  "IncomeRange": {
+    "dataSource": "db",
+    "public": true
+  },
+  "BrandsByCountries": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Reference": {
+    "dataSource": "db",
+    "public": true
+  }
+}

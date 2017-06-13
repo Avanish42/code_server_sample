@@ -1,0 +1,206 @@
+[
+  {
+    "id": "ach01",
+    "title": "Beginner",
+    "description": "Add the first review",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach002",
+    "title": "Brand Nurse",
+    "description": "Leave 0 comments",
+    "image": "/Containers/achievements/download/achi_02.jpg"
+  },
+  {
+    "id": "ach02",
+    "title": "Brand Trainee",
+    "description": "Leave 10 comments",
+    "image": "/Containers/achievements/download/achi_2.jpg"
+  },
+  {
+    "id": "ach03",
+    "title": "Brand Doctor",
+    "description": "Leave 50 comments",
+    "image": "/Containers/achievements/download/achi_3.jpg"
+  },
+  {
+    "id": "ach04",
+    "title": "Brand Professor",
+    "description": "Leave 250 comments",
+    "image": "/Containers/achievements/download/achi_4.jpg"
+  },
+  {
+    "id": "ach05",
+    "title": "Great review Bronze",
+    "description": "Add a review and gain 20 likes",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach06",
+    "title": "Great review Silver",
+    "description": "Add a review and gain 50 likes",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach07",
+    "title": "Great review Gold",
+    "description": "Add a review and gain 100 likes",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach08",
+    "title": "Explorer Bronze",
+    "description": "Add 5 new brands",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach09",
+    "title": "Explorer Silver",
+    "description": "Add 20 new brands",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach10",
+    "title": "Explorer Gold",
+    "description": "Add 50 new brands",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach11",
+    "title": "Competent",
+    "description": "Review 20 brand from the category",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach12",
+    "title": "Proficient",
+    "description": "Review 50 brand from the category",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach13",
+    "title": "Expert",
+    "description": "Review 100 brand from the category",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach14",
+    "title": "Enthusiast",
+    "description": "Review at least one brand per day during 2 weeks",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach15",
+    "title": "Eager beaver",
+    "description": "Review more than 20 brands during one day",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach16",
+    "title": "Flexile",
+    "description": "Review at least one brand in each category",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach17",
+    "title": "Revival",
+    "description": "Start using the app after 30 days of not using it",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach18",
+    "title": "Brand Beat friend",
+    "description": "1 year of using the app, at least 20 reviews",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach19",
+    "title": "Popular Bronze",
+    "description": "20 followers",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach20",
+    "title": "Popular Silver",
+    "description": "50 followers",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach21",
+    "title": "Popular Gold",
+    "description": "150 followers",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach22",
+    "title": "Generous Bronze",
+    "description": "Like 50 reviews or comments",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach23",
+    "title": "Generous Silver",
+    "description": "Like 100 reviews or comments",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach24",
+    "title": "Generous Gold",
+    "description": "Like 300 reviews or comments",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach25",
+    "title": "Buzz maker Bronze",
+    "description": "Write a review and gain 10 comments",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach26",
+    "title": "Buzz maker Silver",
+    "description": "Write a review and gain 25 comments",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach27",
+    "title": "Buzz maker Gold",
+    "description": "Write a review and gain 60 comments",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach28",
+    "title": "Curious Bronze",
+    "description": "Follow 15 users",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach29",
+    "title": "Curious Silver",
+    "description": "Follow 30 users",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach30",
+    "title": "Curious Gold",
+    "description": "Follow 70 users",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach31",
+    "title": "Talkative Bronze",
+    "description": "Add 15 comments during one day",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach32",
+    "title": "Talkative Silver",
+    "description": "Add 30 comments during one day",
+    "image": "/Containers/achievements/download/achi_1.png"
+  },
+  {
+    "id": "ach33",
+    "title": "Talkative Gold",
+    "description": "Add 70 comments during one day",
+    "image": "/Containers/achievements/download/achi_1.png"
+  }
+]

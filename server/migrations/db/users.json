@@ -1,0 +1,52 @@
+[
+  {
+    "id": "user02",
+    "username": "user02",
+    "email": "user02@3dom.in",
+    "password": "123456",
+    "photo": "http://findicons.com/files/icons/175/halloween_avatar/128/scream.png",
+    "devices": ["hardware02"],
+    "meta": {
+      "deviceId": "hardware02",
+      "versionApp": "bundle.id-app-vXXX-bX02",
+      "deviceType": "android",
+      "pushDeviceId": "string02"
+    },
+    "categories": ["cat01"],
+    "subcategories": ["subcat04"],
+    "brands": ["brand05"],
+    "reviews": ["review02", "review03", "review04", "review06"],
+    "followers": ["user03"]
+  },
+  {
+    "id": "user03",
+    "username": "user03",
+    "email": "user03@3dom.in",
+    "password": "123456",
+    "photo": "http://findicons.com/files/icons/175/halloween_avatar/128/frankenstein.png",
+    "devices": ["hardware03"],
+    "meta": {
+      "deviceId": "hardware03",
+      "versionApp": "bundle.id-app-vXXX-bX03",
+      "deviceType": "android",
+      "pushDeviceId": "string03"
+    },
+    "reviews": ["review05", "review07"],
+    "following": ["user02"]
+  },
+  {
+    "id": "user04",
+    "username": "user04",
+    "email": "user04@3dom.in",
+    "password": "123456",
+    "photo": "http://findicons.com/files/icons/175/halloween_avatar/128/alien.png",
+    "devices": ["hardware04"],
+    "meta": {
+      "deviceId": "hardware04",
+      "versionApp": "bundle.id-app-vXXX-bX04",
+      "deviceType": "android",
+      "pushDeviceId": "string04"
+    },
+    "reviews": ["review01", "review08", "review09"]
+  }
+]

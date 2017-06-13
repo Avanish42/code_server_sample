@@ -1,0 +1,86 @@
+[
+  {
+    "id": "cat01",
+    "title": "Beverages",
+    "image": "/Containers/categories/download/cat-beverages.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat02",
+    "title": "Food",
+    "image": "/Containers/categories/download/cat-food.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat03",
+    "title": "Confectionery",
+    "image": "/Containers/categories/download/cat-confectionery.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat05",
+    "title": "Transportation",
+    "image": "/Containers/categories/download/cat-airline.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat06",
+    "title": "Home Products",
+    "image": "/Containers/categories/download/cat-home.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat07",
+    "title": "Baby Products",
+    "image": "/Containers/categories/download/cat-baby.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat08",
+    "title": "Cigarettes",
+    "image": "/Containers/categories/download/cat-adults.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat09",
+    "title": "Personal Care",
+    "image": "/Containers/categories/download/cat-personal2.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat10",
+    "title": "Beauty",
+    "image": "/Containers/categories/download/cat-beauty.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat11",
+    "title": "Banks",
+    "image": "/Containers/categories/download/cat-banks.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat12",
+    "title": "Supermarkets",
+    "image": "/Containers/categories/download/cat-super.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat13",
+    "title": "Telecom",
+    "image": "/Containers/categories/download/cat-telecom.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat14",
+    "title": "Health",
+    "image": "/Containers/categories/download/cat-health.png",
+    "subcategories": []
+  },
+  {
+    "id": "cat15",
+    "title": "Education",
+    "image": "/Containers/categories/download/cat-education.png",
+    "subcategories": []
+  }
+]

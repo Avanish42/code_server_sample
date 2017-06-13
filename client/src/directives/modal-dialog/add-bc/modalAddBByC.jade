@@ -1,0 +1,50 @@
+#modal-dialog_add-bc
+
+  form(name="addBCForm" role="form" novalidate ng-submit="modalAddBByCCtrl.submit()")
+    .modal-header
+      h3.modal-title {{modalAddBByCCtrl.title}}
+    .modal-body
+
+      .row
+        .form-group.col-sm-6
+          label(for="list-title").required Name
+          input(type="text" name="name" required ng-model="modalAddBByCCtrl.form.title" ng-minlength="modalAddBByCCtrl.config.validation.brandsByCountries.title.minLength" ng-maxlength="modalAddBByCCtrl.config.validation.brand.title.maxLength")#list-title.form-control
+          mgr-validation(form="addBCForm" field="addBCForm.name" validators="modalAddBByCCtrl.validators.brandsByCountriesTitle")
+
+      .row(ng-if="modalAddBByCCtrl.form.type !== 'generic'")
+        .form-group.col-sm-12.block-header
+          h4 Countries
+        .form-group.col-sm-5.block-countries
+          label.as-block All
+          select(multiple ng-model="modalAddBByCCtrl.temp.allCountries" ng-options="country.title for country in modalAddBByCCtrl.temp.countries")
+        .form-group.col-sm-2.block-buttons
+          label.as-block &nbsp;
+          button(type="button" ng-disabled="modalAddBByCCtrl.form.countriesDisabled" ng-click="modalAddBByCCtrl.addEssence(modalAddBByCCtrl.temp.allCountries, 'countries')").btn.btn-default.glyphicon.glyphicon-chevron-right
+          button(type="button" ng-disabled="modalAddBByCCtrl.form.countriesDisabled" ng-click="modalAddBByCCtrl.removeEssence(modalAddBByCCtrl.temp.removesCountries, 'countries')").btn.btn-default.glyphicon.glyphicon-chevron-left
+        .form-group.col-sm-5.block-countries-chosen
+          label.as-block.required Chosen
+          select(multiple ng-model="modalAddBByCCtrl.temp.removesCountries" ng-options="country.title for country in modalAddBByCCtrl.form.countries")
+
+      .row
+        .form-group.col-sm-12.block-header
+          h4 Brands
+        .form-group.col-sm-5.block-brands
+          label.as-block All
+          select(multiple ng-model="modalAddBByCCtrl.temp.allBrands" ng-options="brand for brand in modalAddBByCCtrl.temp.brands")
+        .form-group.col-sm-2.block-buttons
+          label.as-block &nbsp;
+          button(type="button" ng-disabled="modalAddBByCCtrl.form.brandsDisabled" ng-click="modalAddBByCCtrl.addEssence(modalAddBByCCtrl.temp.allBrands, 'brands')").btn.btn-default.glyphicon.glyphicon-chevron-right
+          button(type="button" ng-disabled="modalAddBByCCtrl.form.brandsDisabled" ng-click="modalAddBByCCtrl.removeEssence(modalAddBByCCtrl.temp.removesBrands, 'brands')").btn.btn-default.glyphicon.glyphicon-chevron-left
+        .form-group.col-sm-5.block-brands-chosen
+          label.as-block Chosen
+          select(multiple ng-model="modalAddBByCCtrl.temp.removesBrands" ng-options="brand for brand in modalAddBByCCtrl.form.brands")
+
+      .m-t-20.errors-row(ng-if="modalAddBByCCtrl.errors")
+        .alert.alert-danger(role="alert" ng-repeat="error in modalAddBByCCtrl.errors track by $index")
+          span.glyphicon.glyphicon-exclamation-sign(aria-hidden="true")
+          span.sr-only Error:
+          | {{error}}
+
+    .modal-footer.text-center
+      button(type="submit" ng-disabled="addBCForm.$invalid || modalAddBByCCtrl.errors.length").btn.btn-success Save
+      button(type="button" ng-click="modalAddBByCCtrl.cancel()").btn.btn-warning Cancel

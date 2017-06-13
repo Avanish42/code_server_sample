@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "brand-beat-back-dev",
+      "script": ".",
+      "env": {
+        "NODE_ENV": "dev",
+        "HOST": "0.0.0.0",
+        "PORT": 32002
+      },
+      "env_production" : {
+        "NODE_ENV": "production",
+        "HOST": "0.0.0.0",
+        "PORT": 3000
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+form(name="form" role="form" novalidate ng-submit="signInFormCtrl.submit(form)")
+
+  .form-group
+    label(for="email") Email:
+    input(type="email" name="email" ng-model="signInFormCtrl.user.email" required ng-pattern="signInFormCtrl.config.validation.user.email.pattern" ng-change="signInFormCtrl.changeFields()" ng-model-options="{debounce: 500}")#email.form-control
+    mgr-validation(form="form" field="form.email" validators="signInFormCtrl.validators.email")
+  .form-group
+    label(for="password") Password:
+    input(type="password" name="password" ng-model="signInFormCtrl.user.password" required ng-minlength="signInFormCtrl.config.validation.user.password.minLength" ng-change="signInFormCtrl.changeFields()" ng-model-options="{debounce: 500}")#password.form-control
+    mgr-validation(form="form" field="form.password" validators="signInFormCtrl.validators.password")
+  .form-group(ng-if="signInFormCtrl.errorAuth")
+    span.control-label.has-error.text-danger {{signInFormCtrl.errorAuth}}
+  .form-group.nomargin.btn-row.clearfix
+    a.pull-left(href='/reset-password-request') Restore password
+    button.pull-right(type="submit" ng-disabled="form.$invalid").btn.btn-warning Login

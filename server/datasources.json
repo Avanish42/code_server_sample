@@ -1,0 +1,46 @@
+{
+  "db": {
+    "host": "localhost",
+    "database": "brandbeat",
+    "name": "db",
+    "connector": "mongodb",
+    "server": {
+      "auto_reconnect": true,
+      "reconnectTries": 100,
+      "reconnectInterval": 1000
+    }
+  },
+  "emailBridge": {
+    "name": "emailBridge",
+    "defaultForType": "mail",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "brandbeatapplication@gmail.com",
+          "pass": "Brand_Beat_123"
+        }
+      }
+    ]
+  },
+  "filestorage": {
+    "name": "filestorage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "client/public/assets/images"
+  },
+  "push": {
+    "name": "push",
+    "connector": "loopback-component-push",
+    "installation": "installation",
+    "notification": "notification",
+    "application": "application"
+  }
+}

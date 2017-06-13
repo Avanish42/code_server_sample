@@ -1,0 +1,104 @@
+#modal-dialog_add-user
+
+  status-wall(ng-if="modalAddUserCtrl.onComplete.success" type="'success'" text="modalAddUserCtrl.onComplete.text" cb="modalAddUserCtrl.onComplete.cb" duration="modalAddUserCtrl.onComplete.duration")
+
+  form(name="addUserForm" role="form" novalidate ng-submit="modalAddUserCtrl.submit()")
+    .modal-header
+      h3.modal-title {{modalAddUserCtrl.title}}
+    .modal-body
+
+      .row
+        .form-group.col-sm-6
+          label(for="username").required Username
+          input(type="text" name="username" ng-model="modalAddUserCtrl.user.username" required ng-pattern="modalAddUserCtrl.config.validation.user.username.pattern" ng-minlength="modalAddUserCtrl.config.validation.user.username.minLength" ng-maxlength="modalAddUserCtrl.config.validation.user.username.maxLength")#username.form-control
+          mgr-validation(form="addUserForm" field="addUserForm.username" validators="modalAddUserCtrl.validators.username")
+        .form-group.col-sm-6
+          label(for="first-name") First name
+          input(type="text" name="first-name" ng-model="modalAddUserCtrl.user.firstName" ng-maxlength="modalAddUserCtrl.config.validation.user.firstName.maxLength")#first-name.form-control
+          mgr-validation(form="addUserForm" field="addUserForm['first-name']" validators="modalAddUserCtrl.validators.firstName")
+
+      .row
+        .form-group.col-sm-6
+          label(for="email").required Email
+          input(type="text" name="email" ng-model="modalAddUserCtrl.user.email" required ng-pattern="modalAddUserCtrl.config.validation.user.email.pattern")#email.form-control
+          mgr-validation(form="addUserForm" field="addUserForm.email" validators="modalAddUserCtrl.validators.email")
+        .form-group.col-sm-6
+          label(for="last-name") Last name
+          input(type="text" name="last-name" ng-model="modalAddUserCtrl.user.lastName" )#last-name.form-control
+          mgr-validation(form="addUserForm" field="addUserForm['last-name']" validators="modalAddUserCtrl.validators.lastName")
+
+      .row
+        .form-group.col-sm-6(ng-if="!modalAddUserCtrl.editMode")
+          label(for="password").required Password
+          input(type="password" name="password" ng-model="modalAddUserCtrl.temp.password" required ng-minlength="modalAddUserCtrl.config.validation.user.password.minLength")#password.form-control
+          mgr-validation(form="addUserForm" field="addUserForm.password" validators="modalAddUserCtrl.validators.password")
+        .form-group.col-sm-6(ng-if="modalAddUserCtrl.editMode")
+          label(for="phone") Phone
+          input(type="text" name="phone" ng-model="modalAddUserCtrl.user.phone" ng-pattern="modalAddUserCtrl.config.validation.user.phone.pattern" ng-minlength="modalAddUserCtrl.config.validation.user.phone.minLength")#phone.form-control
+          mgr-validation(form="addUserForm" field="addUserForm.phone" validators="modalAddUserCtrl.validators.phone")
+        .form-group.col-sm-6.gender(ng-if="modalAddUserCtrl.editMode")
+          label Gender
+          div
+            input(type="radio" name="gender" ng-model="modalAddUserCtrl.user.gender" value="0")#gender-male
+            label(for="gender-male") Male
+            input(type="radio" name="gender" ng-model="modalAddUserCtrl.user.gender" value="1")#gender-female
+            label(for="gender-female") Female
+        .form-group.col-sm-6(ng-if="!modalAddUserCtrl.editMode")
+          label(for="re-password").required Confirmation
+          input(type="password" name="re-password" ng-model="modalAddUserCtrl.user.password" required ng-minlength="modalAddUserCtrl.config.validation.user.password.minLength" ng-change="modalAddUserCtrl.resetErrors.password()")#re-password.form-control
+          mgr-validation(form="addUserForm" field="addUserForm['re-password']" validators="modalAddUserCtrl.validators.password")
+          span.control-label.has-error.text-danger {{modalAddUserCtrl.errors.password}}
+
+
+      .row
+        .form-group.col-sm-6
+          label(for="country") Country
+          input(type="text" name="country" ng-model="modalAddUserCtrl.user.address.country" ng-model-options="{debounce: 500}" ng-change="modalAddUserCtrl.changeField(modalAddUserCtrl.user.address.country, 'country')")#country.form-control
+
+        .form-group.col-sm-6
+          label(for="incomeRanges") Income
+          select(ng-model="modalAddUserCtrl.user.incomeRange" ng-options="income for income in modalAddUserCtrl.incomeRanges" ng-disabled="!modalAddUserCtrl.user.address.country").form-control#incomeRanges
+
+      .row
+        .form-group.col-sm-6.gender(ng-if="!modalAddUserCtrl.editMode")
+          label Gender
+          div
+            input(type="radio" name="gender" ng-model="modalAddUserCtrl.user.gender" value="0")#gender-male2
+            label(for="gender-male2") Male
+            input(type="radio" name="gender" ng-model="modalAddUserCtrl.user.gender" value="1")#gender-female2
+            label(for="gender-female2") Female
+        .form-group.col-sm-6.dob
+          label D.O.B.
+          .input-group
+            input(type="text" class="form-control" ng-model="modalAddUserCtrl.temp.dob" disabled max-date="modalAddUserCtrl.datepicker.maxDate" datepicker-popup="{{modalAddUserCtrl.datepicker.format}}" is-open="modalAddUserCtrl.datepicker.dpOpened" datepicker-options="dateOptions" close-text="Close")
+            span.input-group-btn
+              button(type="button" ng-click="modalAddUserCtrl.openDatepicker($event)").btn.btn-default
+                i.glyphicon.glyphicon-calendar
+
+      .row
+        .form-group.col-sm-6(ng-if="!modalAddUserCtrl.editMode")
+          label(for="phone") Phone
+          input(type="text" name="phone" ng-model="modalAddUserCtrl.user.phone" ng-pattern="modalAddUserCtrl.config.validation.user.phone.pattern" ng-minlength="modalAddUserCtrl.config.validation.user.phone.minLength")#phone.form-control
+          mgr-validation(form="addUserForm" field="addUserForm.phone" validators="modalAddUserCtrl.validators.phone")
+
+      .row-zone
+        .form-group.m-b-0.clearfix.photo-row(ng-class="{'has-error': modalAddUserCtrl.errors.photo}")
+          .photo-box(ng-if="modalAddUserCtrl.temp.photo")
+            img(src="{{modalAddUserCtrl.temp.photo.$ngfBlobUrl}}").photo-item#user-photo
+          button(type="file" ngf-select ngf-drop ngf-pattern="modalAddUserCtrl.config.userPattern" ngf-min-width="modalAddUserCtrl.config.validation.user.photo.minWidth" ngf-min-height="modalAddUserCtrl.config.validation.user.photo.minHeight" ngf-max-size="modalAddUserCtrl.config.validation.user.photo.maxSize" ngf-change="modalAddUserCtrl.choosePhoto($file, $invalidFiles)")#add-photo.glyphicon.glyphicon-camera &nbsp;
+          ul(ng-if="modalAddUserCtrl.errors.photo").mgr-validation-messages
+            li(ng-repeat="error in modalAddUserCtrl.errors.photo track by $index").mgr-invalid
+              p {{error}}
+          progressbar(ng-if="modalAddUserCtrl.uploadProgress.pt || modalAddUserCtrl.errors.photoUpload" value="modalAddUserCtrl.uploadProgress.pt || modalAddUserCtrl.errors.photoUpload" type="{{!modalAddUserCtrl.errors.photoUpload ? 'success' : 'warning'}}").m-t-10.m-b-0
+            span(ng-if="modalAddUserCtrl.uploadProgress.pt && !modalAddUserCtrl.errors.photoUpload") {{modalAddUserCtrl.uploadProgress.pt}}%
+            span(ng-if="modalAddUserCtrl.errors.photoUpload") {{modalAddUserCtrl.errors.photoUpload}}
+
+      .errors-row(ng-if="modalAddUserCtrl.errors.any")
+        .alert.alert-danger.m-t-20(role="alert" ng-repeat="error in modalAddUserCtrl.errors.any track by $index")
+          span.glyphicon.glyphicon-exclamation-sign(aria-hidden="true")
+          span.sr-only Error:
+          | {{error}}
+
+    .modal-footer.text-center
+      button(type="submit" ng-disabled="addUserForm.$invalid").btn.btn-success Save
+      button(type="button" ng-click="modalAddUserCtrl.cancel()").btn.btn-warning Cancel

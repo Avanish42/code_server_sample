@@ -1,0 +1,42 @@
+#modal-dialog_reject-brand
+
+  input[type='radio']
+    margin-right 5px
+
+  .matches-list
+    padding 6px 12px
+    max-height 106px
+    border 1px solid #ccc
+    overflow-y auto
+    overflow-x hidden
+    ul
+      margin 0
+    li
+      line-height 24px
+      font-size 12px
+      a
+        position relative
+        z-index 1
+        display block
+        white-space nowrap
+        text-overflow ellipsis
+        text-decoration none
+        &.active
+          color #fff
+        &:hover,
+        &:hover:before
+          color #333
+          background-color #d0deea
+        &:hover:before,
+        &.active:before
+          content ""
+          position absolute
+          z-index -1
+          top 0;
+          left:-30px
+          width 120%
+          height 100%
+        &:hover:before
+          background-color #d0deea
+        &.active:before
+          background-color #337ab7

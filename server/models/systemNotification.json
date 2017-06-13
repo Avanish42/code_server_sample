@@ -1,0 +1,43 @@
+{
+  "name": "SystemNotification",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "hidden": ["modifiedAt"],
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "number"
+    },
+    "statusRead": {
+      "type": "number"
+    },
+    "statusBadge": {
+      "type": "number"
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "follower": {
+      "type": "object"
+    },
+    "parentId": {
+      "type": "string"
+    },
+    "commentId": {
+      "type": "string"
+    },
+    "reasonBrandId": {
+      "type": "string"
+    },
+    "achievement": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

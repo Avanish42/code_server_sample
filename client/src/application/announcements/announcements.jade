@@ -1,0 +1,128 @@
+#announcements.container
+
+  status-wall(ng-if="announcementsCtrl.onComplete.success" type="'success'" text="announcementsCtrl.onComplete.text" cb="announcementsCtrl.onComplete.cb" duration="announcementsCtrl.onComplete.duration")
+
+  .col-sm-8.col-sm-offset-2
+    .as-modal.announcements
+      form(name="form" role="form" novalidate ng-submit="announcementsCtrl.submit()")
+        .part-header
+          h3 Announcements
+
+        .part-body
+          .form-group
+            .row
+              .col-sm-12
+                input(type="radio" name="from" ng-model="announcementsCtrl.form.from" value="brandbeat")#from-brandbeat
+                label(for="from-brandbeat").oneline from Brand Beat
+
+            .row
+              .col-sm-3
+                input(type="radio" name="from" ng-model="announcementsCtrl.form.from" value="brand")#from-brand
+                label(for="from-brand").oneline from Brand
+
+              div(ng-if="announcementsCtrl.form.from === 'brand'").col-sm-5
+                input(type="text" name="brand" autocomplete="off" ng-required="announcementsCtrl.form.from === 'brand'" ng-model="announcementsCtrl.temp.foundBrandsFromQuery" ng-model-options="{debounce: 500}" ng-change="announcementsCtrl.searchFromBrand()" ng-click="announcementsCtrl.fillSearchBrands(announcementsCtrl.temp.foundBrandsFromQuery, 'foundBrandsFrom')")#brand.form-control
+                mgr-validation(form="form" field="form.brand" validators="announcementsCtrl.validators.announcementsBrand")
+                .dropdown-row.search-result
+                  .btn-group.dropdown(dropdown is-open="announcementsCtrl.temp.foundBrandsFromOpen")
+                    ul.list-unstyled.dropdown-menu.list
+                      li(ng-repeat="brand in announcementsCtrl.temp.foundBrandsFrom")
+                        a(href="javascript:void(0)" ng-click="announcementsCtrl.setBrandFrom(brand)").brand-name {{brand.title}}
+                span(ng-if="!announcementsCtrl.temp.currentBrandFrom && form.$valid").has-error.text-danger Brand not exist
+
+          .form-group.text-row
+            label(for="text").required Text
+            textarea(name="text" required ng-model="announcementsCtrl.form.text" ng-maxlength="announcementsCtrl.config.validation.announcements.text.maxLength")#text.form-control
+            mgr-validation(form="form" field="form.text" validators="announcementsCtrl.validators.announcementsText")
+
+          .form-group
+            h4.group-title Users
+
+          .row.form-group.gender-row
+            .col-sm-3
+              label(for="gender-all") Gender
+            .col-sm-2
+              input(type="radio" name="gender" ng-model="announcementsCtrl.form.gender" value="male" ng-change="announcementsCtrl.filterUsers()")#gender-male
+              label(for="gender-male") Male
+            .col-sm-2
+              input(type="radio" name="gender" ng-model="announcementsCtrl.form.gender" value="female" ng-change="announcementsCtrl.filterUsers()")#gender-female
+              label(for="gender-female") Female
+            .col-sm-2
+              input(type="radio" name="gender" ng-model="announcementsCtrl.form.gender" ng-value="all" ng-change="announcementsCtrl.filterUsers()")#gender-all
+              label(for="gender-all") All
+
+          .row.form-group
+            .col-sm-3
+              label(for="country").oneline Country
+            .col-sm-5
+              input(type="text" name="country" placeholder=" " ng-model="announcementsCtrl.form.selectedCountry" ng-model-options="{debounce: 500}" ng-change="announcementsCtrl.changeField(announcementsCtrl.form.selectedCountry, 'country')")#country.form-control
+
+          .row.form-group
+            .col-sm-3
+              label(for="city").oneline City
+            .col-sm-5
+              input(type="text" name="city" placeholder=" " ng-model="announcementsCtrl.form.city" ng-disabled="!announcementsCtrl.form.country" ng-model-options="{debounce: 500}" ng-change="announcementsCtrl.changeField(announcementsCtrl.form.city, 'city')")#city.form-control
+
+          .row.form-group(ng-if="announcementsCtrl.incomeRangesList")
+            .col-sm-3
+              label Income
+            .col-sm-5
+              .dropdown-row
+                .btn-group.dropdown(dropdown)
+                  button(type="button" dropdown-toggle)#set-income.btn.btn-primary.dropdown-toggle &nbsp;
+                    span.caret &nbsp;
+                  ul.list-unstyled.dropdown-menu.list
+                    li(ng-repeat="incomeRange in announcementsCtrl.incomeRangesList").group-range
+                      a(href="javascript:void(0)" ng-click="announcementsCtrl.setIncomeRange(incomeRange)").category-name
+                        span {{incomeRange}}
+
+            .col-sm-9.col-sm-offset-3
+              ul.list-unstyled.m-b-0.subscriptions-list
+                li(ng-repeat="item in announcementsCtrl.form.incomeRanges track by item" ng-click="announcementsCtrl.deleteItem(item, 'incomeRanges')").item {{item}}
+                  span.glyphicon.glyphicon-remove
+
+          .row.form-group
+            .col-sm-3
+              label Category / Subcategory subscriptions
+            .col-sm-5
+              .dropdown-row
+                .btn-group.dropdown(dropdown)
+                  button(type="button" dropdown-toggle)#set-subcategory.btn.btn-primary.dropdown-toggle &nbsp;
+                    span.caret &nbsp;
+                  ul.list-unstyled.dropdown-menu.list
+                    li(ng-repeat="(categoryName, subcategories) in announcementsCtrl.catSubcatList").group-category
+                      a(href="javascript:void(0)" ng-click="announcementsCtrl.setSubs(subcategories, 'category')").category-name {{categoryName}}
+                      ul.list-unstyled
+                        li(ng-repeat="subcategory in subcategories").item-subcategory
+                          a(href="javascript:void(0)" ng-click="announcementsCtrl.setSubs(subcategory, 'subcategory')") {{subcategory.title}}
+            .col-sm-9.col-sm-offset-3
+              ul.list-unstyled.m-b-0.subscriptions-list
+                li(ng-repeat="item in announcementsCtrl.temp.subscriptions" ng-click="announcementsCtrl.deleteItem(item, 'subscriptions')").item {{item.title}}
+                  span.glyphicon.glyphicon-remove
+
+          .row.form-group
+            .col-sm-3
+              label(for="subs-brands") Brand
+                br
+                | subscriptions
+            .col-sm-5
+              input(type="text" autocomplete="off" ng-model="announcementsCtrl.temp.foundBrandsQuery" ng-model-options="{debounce: 500}" ng-change="announcementsCtrl.searchBrand()" ng-click="announcementsCtrl.fillSearchBrands(announcementsCtrl.temp.foundBrandsQuery, 'foundBrands')")#subs-brands.form-control
+              .dropdown-row.search-result
+                .btn-group.dropdown(dropdown is-open="announcementsCtrl.temp.foundBrandsOpen")
+                  ul.list-unstyled.dropdown-menu.list
+                    li(ng-repeat="brand in announcementsCtrl.temp.foundBrands")
+                      a(href="javascript:void(0)" ng-click="announcementsCtrl.setBrand(brand)").brand-name {{brand.title}}
+
+              ul.list-unstyled.m-b-0.subscriptions-list
+                li(ng-repeat="item in announcementsCtrl.temp.brands" ng-click="announcementsCtrl.deleteItem(item, 'brands')").item {{item.title}}
+                  span.glyphicon.glyphicon-remove
+
+          .form-group
+            input(type="checkbox" ng-disabled="announcementsCtrl.form.from !== 'brand' || !announcementsCtrl.temp.currentBrandFrom" ng-model="announcementsCtrl.temp.onlyMaxRate" ng-change="announcementsCtrl.setMinRate(announcementsCtrl.temp.onlyMaxRate)")#max-rate
+            label(for="max-rate") Layout to the brand (at least 1 rate, all rates are 5)
+
+          .form-group
+            strong Number of users: {{announcementsCtrl.users.length || 0}}
+
+        .part-footer
+          button(type="submit" ng-disabled="form.$invalid || announcementsCtrl.form.from === 'brand' && !announcementsCtrl.temp.currentBrandFrom").btn.btn-success Send

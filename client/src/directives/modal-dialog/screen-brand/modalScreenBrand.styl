@@ -1,0 +1,53 @@
+#modal-dialog_screen-brand
+
+  .col
+    &-id
+      max-width 110px
+      min-width 110px
+    &-date
+      max-width 100px
+      min-width 100px
+    &-user
+      max-width 180px
+      min-width 180px
+    &-rate
+      max-width 50px
+      min-width 50px
+    &-actions
+      max-width 128px
+      width 128px
+
+  .table-head
+    > div
+      display inline-block
+      padding 8px
+      border 1px solid #ddd
+      border-right none
+      font-weight bold
+      &:first-child
+        border-left 1px solid #ddd
+      &:last-child
+        border-right 1px solid #ddd
+
+  .table-body
+    max-height 198px
+    overflow-x auto
+
+  td[class^="col-"]
+    div
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+
+  .reset-position
+    float right
+
+  .photo-box
+    max-height 130px
+    text-align center
+    border 1px solid #ccc
+    border-radius 5px
+    overflow hidden
+    img
+      max-width 100%
+      max-height 130px

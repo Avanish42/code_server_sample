@@ -1,0 +1,86 @@
+[
+  {
+    "id": "comment01",
+    "authorId": "user02",
+    "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+    "parentId": "review01"
+  },
+  {
+    "id": "comment02",
+    "authorId": "user02",
+    "text": "Many desktop publishing packages and web page editors now use Lorem Ipsum",
+    "parentId": "review02"
+  },
+  {
+    "id": "comment03",
+    "authorId": "user02",
+    "text": "Latin words, combined with a handful of model sentence structures",
+    "parentId": "review04"
+  },
+  {
+    "id": "comment04",
+    "authorId": "user03",
+    "text": "This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32",
+    "parentId": "review01"
+  },
+  {
+    "id": "comment05",
+    "authorId": "user03",
+    "text": "Richard McClintock, a Latin professor at Hampden-Sydney College",
+    "parentId": "review02"
+  },
+  {
+    "id": "comment06",
+    "authorId": "user03",
+    "text": "(The Extremes of Good and Evil) by Cicero, written in 45 BC",
+    "parentId": "review07"
+  },
+  {
+    "id": "comment07",
+    "authorId": "user04",
+    "text": "English versions from the 1914 translation by H. Rackham.",
+    "parentId": "review07"
+  },
+  {
+    "id": "comment08",
+    "authorId": "user04",
+    "text": "Lorem Ipsum comes from sections 1.10.32",
+    "parentId": "review01"
+  },
+  {
+    "id": "comment09",
+    "authorId": "user04",
+    "text": "be distracted by the readable content",
+    "parentId": "review06"
+  },
+  {
+    "id": "comment10",
+    "authorId": "user04",
+    "text": "Lorem Ipsum passage, and going through the cites of the word in classical literature",
+    "parentId": "review06"
+  },
+  {
+    "id": "comment11",
+    "authorId": "user04",
+    "text": "It was popularised in the 1960s with the release of Letraset sheets containing ",
+    "parentId": "review01"
+  },
+  {
+    "id": "comment12",
+    "authorId": "user04",
+    "text": "Aldus PageMaker including versions of Lorem Ipsum.",
+    "parentId": "review02"
+  },
+  {
+    "id": "comment13",
+    "authorId": "user02",
+    "text": "will uncover many web sites still in their infancy. Various versions have",
+    "parentId": "review05"
+  },
+  {
+    "id": "comment14",
+    "authorId": "user02",
+    "text": "200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. ",
+    "parentId": "review06"
+  }
+]

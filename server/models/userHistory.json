@@ -1,0 +1,32 @@
+{
+  "name": "UserHistory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "lastViewedBrands": {
+      "type": "array",
+      "default": []
+    },
+    "comparisonBrands": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

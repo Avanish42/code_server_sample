@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Generic",
+    "countries": [{"title": "#generic", "key": "#generic"}],
+    "brands": [],
+    "type": "generic",
+    "createUserId": "user01",
+    "modifiedUserId": "user01",
+    "createdAt": 146727600000,
+    "modifiedAt": 146727600000
+  }
+]

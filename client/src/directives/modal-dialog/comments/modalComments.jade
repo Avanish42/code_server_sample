@@ -1,0 +1,17 @@
+#modal-dialog_comments
+  .modal-header
+    h3.modal-title {{modalCommentsCtrl.title}}
+  .modal-body
+    .comments-container
+      .comment-row(ng-repeat="comment in modalCommentsCtrl.comments")
+        .comment-info.row
+          .col-sm-6.col-user
+            a(href="javascript:void(0)" ng-click="modalCommentsCtrl.showUser(comment.user)") {{comment.user.firstName && comment.user.lastName || comment.user.username}}
+          .col-sm-4.col-date {{comment.createdAt | amDateFormat:'mm:hh A DD.MM.YYYY'}}
+          .col-sm-2.col-actions
+            span(ng-click="modalCommentsCtrl.commentDelete(comment, $event)").glyphicon.glyphicon-trash.delete &nbsp;
+        .comment-text
+          p {{comment.text}}
+
+  .modal-footer.text-center
+    button(type="button" ng-click="modalCommentsCtrl.cancel()").btn.btn-warning Cancel

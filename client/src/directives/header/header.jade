@@ -1,0 +1,21 @@
+#header.container
+  .row(ng-if="headerCtrl.$rootScope.userInfo").header-panel.row
+    .col-sm-12.clearfix.header-interface
+      nav
+        ul.list-unstyled.list-inline.list-hash.m-b-0
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.editProfile'}" href="/edit-profile") Edit Profile
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.manageUsers'}" href="/manage-users") Manage Users
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.manageReviews'}" href="/manage-reviews") Manage Reviews
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.manageBrands'}" href="/manage-brands") Manage Brands
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.manageBrandsCountries'}" href="/manage-brands-countries") Countries and Brands
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.announcements'}" href="/announcements") Send announcements
+          li
+            a(ng-class="{active: headerCtrl.$rootScope.stateActive === 'application.featuredBrands'}" href="/featured-brands") Set featured brands
+          li
+            a(href="javascript:void(0)" ng-click="headerCtrl.logout()") Logout

@@ -1,0 +1,51 @@
+#manage-reviews.manage-page.container
+
+  .m-t-20.filters-sector.row
+    .col-sm-2.sm-m-b-10
+      strong Filter By:
+    .col-sm-2.sm-m-b-10
+      label(for="by-category").filter-title Category
+      select(ng-model="manageReviewsCtrl.filter.selectedCategory" ng-options="category.title for category in manageReviewsCtrl.filter.categories" ng-change="manageReviewsCtrl.setTableFilter('category', manageReviewsCtrl.filter.selectedCategory)").form-control#by-category
+    .col-sm-2.sm-m-b-10
+      label(for="by-subcategory").filter-title Subcategory
+      select(ng-model="manageReviewsCtrl.filter.selectedSubcategory" ng-options="subcategory.title for subcategory in manageReviewsCtrl.filter.subcategories" ng-change="manageReviewsCtrl.setTableFilter('subcategory', manageReviewsCtrl.filter.selectedSubcategory)").form-control#by-subcategory
+    .col-sm-2.sm-m-b-10
+      label(for="by-checked").as-block Checked
+      toggle-switch(type="checkbox" ng-model="manageReviewsCtrl.filter.checked" ng-change="manageReviewsCtrl.setTableFilter('checked', manageReviewsCtrl.filter.checked)")#by-checked
+    .col-sm-4.sm-m-b-10
+      label(for="search").as-block &nbsp;
+      .search-row
+        input(type="text" placeholder="Search" ng-model="manageReviewsCtrl.filter.bySearch" ng-model-options='{debounce: 500}' ng-change="manageReviewsCtrl.setTableFilter('search', {title: ['text', 'username', 'brand'], value: manageReviewsCtrl.filter.bySearch})")#search.form-control
+        span.input-group-btn
+          span.glyphicon.glyphicon-search &nbsp;
+
+  .m-t-20.table-container
+    table(ng-table="manageReviewsCtrl.tableParams").table.table-striped.table-bordered.table-hover
+      tbody
+        tr(ng-repeat="review in $data track by review.id").review-row
+          td(title="'ID'" sortable="'id'").col-id
+            div {{review.id}}
+          td(title="'Date'" sortable="'createdAt'").col-date
+            div {{review.createdAt | amDateFormat:'DD.MM.YYYY'}}
+          td(title="'Username'").col-username
+            div {{review.user.username}}
+          td(title="'Image'").col-image
+            div(class="{{!review.images.length ? 'no-image' : 'has-image'}}")
+              img(ng-if="review.images.length" src="{{review.images[0] + '?size=m'}}")
+              span(ng-if="!review.images.length") No image
+          td(title="'Brand'").col-brand
+            div
+              span(title="{{review.brand.title}}").title-brand {{review.brand.title}}
+              span.title-category {{review.category.title}} -
+              span(title="{{review.subcategory.title}}").title-category &nbsp; {{review.subcategory.title}}
+          td(title="'Rate'" sortable="'rate'").col-rate
+            div {{review.rate}}
+          td(title="'Text'" sortable="'text'").col-text
+            div
+              span(ng-click="manageReviewsCtrl.toggleText($event)").glyphicon.glyphicon-plus.toggle-text &nbsp;
+              span.text(title="{{review.text}}") {{review.text}}
+          td(title="'Actions'").col-actions
+            div
+              span(ng-click="manageReviewsCtrl.showComments(review)" ng-class="{'has-comments': review.comments.length}").glyphicon.glyphicon-comment.comments {{review.comments.length}}
+              span(ng-click="manageReviewsCtrl.reviewDelete(review.id, $event)").glyphicon.glyphicon-trash.delete &nbsp;
+              span(ng-class="{'approved': review.status === 1}" ng-click="manageReviewsCtrl.reviewApprove(review, $event)").glyphicon.glyphicon-ok.approve &nbsp;

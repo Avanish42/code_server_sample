@@ -1,0 +1,28 @@
+.as-modal.waiting-reviews
+  form(name="formTrendingBrand" novalidate ng-submit="trendingBrandsCtrl.submit()")
+    .part-header
+      h3 Trending brands
+
+    .part-body.clearfix
+      .form-group.clearfix.row-brand
+        div.col-sm-12
+          label(for="wr-brand").as-block Brand
+          input(type="text" autocomplete="off" ng-model="trendingBrandsCtrl.temp.queryBrand" ng-model-options="{debounce: 500}" ng-change="trendingBrandsCtrl.searchBrand()" ng-click="trendingBrandsCtrl.fillSearchBrands(trendingBrandsCtrl.temp.queryBrand)")#wr-brand.form-control
+          .dropdown-row.search-result
+            .btn-group.dropdown(dropdown is-open="trendingBrandsCtrl.openBrandList")
+              ul.list-unstyled.dropdown-menu.list
+                li(ng-repeat="brand in trendingBrandsCtrl.foundBrands")
+                  a(href="javascript:void(0)" ng-click="trendingBrandsCtrl.setBrand(brand)").brand-name {{brand.title}}
+
+      div(ng-if="trendingBrandsCtrl.currentBrand").form-group.row-current-brand.clearfix
+        .col-sm-6
+          .photo-box
+            img(src="{{trendingBrandsCtrl.currentBrand.image}}").photo-item#brand-photo-suggest
+        .col-sm-6
+          .as-table
+            .as-table-cell
+              a(href="javascript:void(0)" ng-click="trendingBrandsCtrl.resetBrand()").brand-title {{trendingBrandsCtrl.currentBrand.title}}
+                span.glyphicon.glyphicon-remove
+
+    .part-footer
+      button(type="submit" ng-disabled="!trendingBrandsCtrl.hasChanges").btn.btn-success Save

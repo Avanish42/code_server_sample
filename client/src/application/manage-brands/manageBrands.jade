@@ -1,0 +1,72 @@
+#manage-brands.manage-page.container
+
+  .m-t-20.filters-sector.row
+    .lvl-1.clearfix
+      .col-sm-3.sm-m-b-10
+        strong New brand
+        button(type="button" ng-click="manageBrandsCtrl.addBrand()").btn.btn-default.glyphicon.glyphicon-plus#add-brand &nbsp;
+      .col-sm-4.col-sm-offset-5.sm-m-b-10
+        .search-row
+          input(type="text" placeholder="Search" ng-model="manageBrandsCtrl.filter.bySearch" ng-model-options='{debounce: 500}' ng-change="manageBrandsCtrl.setTableFilter('search', {title: ['title', 'text', 'username'], value: manageBrandsCtrl.filter.bySearch})")#search.form-control
+          span.input-group-btn
+            span.glyphicon.glyphicon-search &nbsp;
+    .lvl-2.m-t-20.clearfix
+      .col-sm-2.sm-m-b-10
+        strong Filter By:
+      .col-sm-2.sm-m-b-10
+        label(for="by-category").filter-title Category
+        select(ng-model="manageBrandsCtrl.filter.selectedCategory" ng-options="category.title for category in manageBrandsCtrl.filter.categories" ng-change="manageBrandsCtrl.setTableFilter('category', manageBrandsCtrl.filter.selectedCategory)").form-control#by-category
+      .col-sm-2.sm-m-b-10
+        label(for="by-subcategory").filter-title Subcategory
+        select(ng-model="manageBrandsCtrl.filter.selectedSubcategory" ng-options="subcategory.title for subcategory in manageBrandsCtrl.filter.subcategories" ng-change="manageBrandsCtrl.setTableFilter('subcategory', manageBrandsCtrl.filter.selectedSubcategory)").form-control#by-subcategory
+      .col-sm-2.sm-m-b-10
+        label(for="by-state").as-block State
+        select(ng-model="manageBrandsCtrl.filter.selectedState" ng-options="state.title for state in manageBrandsCtrl.filter.states" ng-change="manageBrandsCtrl.setTableFilter('state', manageBrandsCtrl.filter.selectedState)").form-control#by-state
+      .col-sm-2.sm-m-b-10
+        label(for="by-rejected").as-block Rejected
+        toggle-switch(type="checkbox" ng-model="manageBrandsCtrl.filter.rejected" ng-change="manageBrandsCtrl.setTableFilter('rejected', manageBrandsCtrl.filter.rejected)")#by-rejected
+
+
+
+  .m-t-20.table-container
+    table(ng-table="manageBrandsCtrl.tableParams").table.table-striped.table-bordered.table-hover
+      tbody
+        tr(ng-repeat="brand in $data track by brand.id").brand-row
+          td(title="'ID'" sortable="'id'").col-id
+            div {{brand.id}}
+          td(title="'Date'" sortable="'createdAt'").col-date
+            div {{brand.createdAt | amDateFormat:'DD.MM.YYYY'}}
+          td(title="'User'").col-user
+            div {{brand.user.username}}
+          td(title="'Image'").col-image
+            div(class="{{!brand.image ? 'no-image' : 'has-image'}}")
+              img(ng-if="brand.image" src="{{brand.image + '?size=m'}}")
+              span(ng-if="!brand.image") No image
+          td(title="'Name'").col-name
+            div
+              a(title="{{brand.title}}" href="javascript:void(0)" ng-click="manageBrandsCtrl.screenBrand(brand)").title-brand {{brand.title}}
+          td(title="'Category'").col-category
+            div
+              span(title="{{brand.category.title}}").title-category {{brand.category.title}}
+          td(title="'Subcategory'").col-subcategory
+            div
+              span(title="{{brand.subcategory.title}}").title-subcategory {{brand.subcategory.title}}
+          td(title="'Text'" sortable="'text'").col-text
+            div
+              span(ng-click="manageBrandsCtrl.toggleText($event)").glyphicon.glyphicon-plus.toggle-text &nbsp;
+              span.text(title="{{brand.text}}") {{brand.text}}
+          td(title="'State'" sortable="'state'").col-state
+            div
+              span {{manageBrandsCtrl.helpers.capitalizeFirstLetter(brand.state)}}
+          td(title="'Countries'").col-countries
+            div
+              span(ng-click="manageBrandsCtrl.toggleText($event)").glyphicon.glyphicon-plus.toggle-text &nbsp;
+              ul.list-unstyled
+                li(ng-repeat="country in brand.countries")
+                  span {{country}}
+          td(title="'Actions'").col-actions
+            div(class="{{brand.state !== 'added_by_admin' ? 'status-' + brand.state : 'status-by-admin' }}" ng-class="{'rows-2': brand.state !== 'added_by_admin'}")
+              span(ng-click="manageBrandsCtrl.brandDelete(brand.id, $event)").glyphicon.glyphicon-trash.delete &nbsp;
+              span(ng-click="manageBrandsCtrl.brandEdit(brand, $event)").glyphicon.glyphicon-pencil.edit &nbsp;
+              span(ng-click="manageBrandsCtrl.changeState(brand, 'rejected', $event)").glyphicon.glyphicon-remove.disapprove &nbsp;
+              span(ng-click="manageBrandsCtrl.changeState(brand, 'accepted', $event)").glyphicon.glyphicon-ok.approve &nbsp;

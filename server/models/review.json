@@ -1,0 +1,107 @@
+{
+  "name": "Review",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "authorId": {
+      "type": "string",
+      "required": true
+    },
+    "brandId": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "address": {
+      "type": "object",
+      "default": {}
+    },
+    "location": {
+      "type": "GeoPoint",
+      "default": {}
+    },
+    "state": {
+      "type": "string"
+    },
+    "trending": {
+      "type": "object",
+      "default": {}
+    },
+    "position": {
+      "type": "number"
+    },
+    "rate": {
+      "type": "number"
+    },
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "likes": {
+      "type": "array",
+      "default": []
+    },
+    "comments": {
+      "type": "array",
+      "default": []
+    },
+    "hashtags": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": "authorId"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": ""
+    },
+    "subcategory": {
+      "type": "belongsTo",
+      "model": "Subcategory",
+      "foreignKey": ""
+    },
+    "brand": {
+      "type": "belongsTo",
+      "model": "Brand",
+      "foreignKey": "brandId"
+    },
+    "comment": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {}
+}

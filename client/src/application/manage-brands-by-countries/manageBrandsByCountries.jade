@@ -1,0 +1,29 @@
+#manage-brands_by_countries.manage-page.container
+
+  .lvl-1.clearfix
+    .header-content
+      h3 Brands and Countries
+    .col-sm-3.sm-m-b-10
+      strong New list
+      button(type="button" ng-click="manageBrandsByCountriesCtrl.addList()").btn.btn-default.glyphicon.glyphicon-plus#add-list &nbsp;
+
+  .lvl-2
+    .content.m-t-20
+      ul.list-unstyled.lists-list
+        li(ng-repeat="list in manageBrandsByCountriesCtrl.lists").c-list
+          .c-list-header
+            span {{list.title}}
+            span.interface
+              button(type="button" ng-click="manageBrandsByCountriesCtrl.importBrands(list)").glyphicon.glyphicon-import.transparent.import-brands &nbsp;
+              button(type="button" ng-if="list.type !== 'generic'" ng-click="manageBrandsByCountriesCtrl.deleteList(list, $event)").glyphicon.glyphicon-trash.transparent.delete &nbsp;
+              button(type="button" ng-click="manageBrandsByCountriesCtrl.listEdit(list, $event)").glyphicon.glyphicon-pencil.transparent.edit &nbsp;
+
+          .c-list-content.row
+            .col-sm-6
+              div(ng-if="list.type !== 'generic'")
+                label.as-block Countries
+                select(id="countries-{{list.id}}" multiple disabled ng-model="manageBrandsByCountriesCtrl.temp['countries-{{list.id}}']" ng-options="country.title for country in list.countries")
+            .col-sm-6
+              div
+                label.as-block Brands
+                select(id="brands-{{list.id}}" multiple disabled ng-model="manageBrandsByCountriesCtrl.temp['brands-{{list.id}}']" ng-options="brand for brand in list.brands")

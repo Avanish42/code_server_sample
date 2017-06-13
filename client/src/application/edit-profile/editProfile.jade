@@ -1,0 +1,23 @@
+section#edit-profile.as-table
+
+  .as-table-cell
+    .row.centered
+      .col-sm-6.col-sm-offset-3.edit-profile-container.as-modal
+        section.panel.panel-default
+          .panel-heading.text-center
+            h2 Edit Profile
+          .panel-body
+            form(name="form" role="form" novalidate ng-submit="editProfileCtrl.submit(form)")
+              .form-group
+                label(for="email") Email:
+                input(type="email" name="email" ng-model="editProfileCtrl.user.email" ng-required="!editProfileCtrl.complete" ng-pattern="editProfileCtrl.config.validation.user.email.pattern" ng-change="editProfileCtrl.changeFields()" ng-model-options="{debounce: 500}")#email.form-control
+                mgr-validation(form="form" field="form.email" validators="editProfileCtrl.validators.email")
+              .form-group
+                label(for="password") Password:
+                input(type="password" name="password" ng-model="editProfileCtrl.user.password" ng-required="!editProfileCtrl.complete" ng-minlength="editProfileCtrl.config.validation.user.password.minLength" ng-change="editProfileCtrl.changeFields()" ng-model-options="{debounce: 500}")#password.form-control
+                mgr-validation(form="form" field="form.password" validators="editProfileCtrl.validators.password")
+              .form-group(ng-if="editProfileCtrl.errorAuth")
+                span.control-label.has-error.text-danger {{editProfileCtrl.errorAuth}}
+              .form-group.nomargin.btn-row.clearfix
+                button.pull-right(type="submit" ng-disabled="form.$invalid").btn.btn-warning Save
+

@@ -1,0 +1,47 @@
+{
+  "name": "Comment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "authorId": {
+      "type": "string",
+      "required": true
+    },
+    "parentId": {
+      "type": "string"
+    },
+    "onCommentId": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "comments": {
+      "type": "array",
+      "default": []
+    },
+    "likes": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": "authorId"
+    },
+    "review": {
+      "type": "belongsTo",
+      "model": "Review",
+      "foreignKey": "parentId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

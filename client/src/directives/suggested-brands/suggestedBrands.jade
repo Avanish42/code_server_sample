@@ -1,0 +1,38 @@
+.as-modal.waiting-reviews
+  form(name="formSuggestedBrands" novalidate ng-submit="suggestedBrandsCtrl.submit()")
+    .part-header
+      h3 Suggested brands for Category
+
+    .part-body.clearfix
+      .form-group.clearfix.row-countries
+        .form-group.col-sm-12.block-header
+          label(for="sb-country").required.as-block Countries
+          select(ng-model="suggestedBrandsCtrl.temp.selectedCountry" ng-options="country.title for country in suggestedBrandsCtrl.temp.countries" ng-change="suggestedBrandsCtrl.selectCountry(suggestedBrandsCtrl.temp.selectedCountry || suggestedBrandsCtrl.currentCountryCode, suggestedBrandsCtrl.temp.selectedCategory)")#sb-country.form-control
+
+      .form-group.clearfix.row-category
+        .col-sm-12
+          label(for="sb-category").required.as-block Category
+          select(ng-model="suggestedBrandsCtrl.temp.selectedCategory" ng-options="category.title for category in suggestedBrandsCtrl.categories track by category.title" ng-change="suggestedBrandsCtrl.searchActiveBrand(suggestedBrandsCtrl.currentCountryCode, suggestedBrandsCtrl.temp.selectedCategory, suggestedBrandsCtrl.temp.selectedCountry.key)").form-control#sb-category
+
+      .form-group.clearfix.row-brand
+        div.col-sm-12
+          label(for="sb-brand").required.as-block Brand
+          input(type="text" autocomplete="off" ng-model="suggestedBrandsCtrl.temp.queryBrand" ng-model-options="{debounce: 500}" ng-change="suggestedBrandsCtrl.searchBrand(suggestedBrandsCtrl.temp.queryBrand, suggestedBrandsCtrl.currentCountryCode, suggestedBrandsCtrl.temp.selectedCategory)" ng-click="suggestedBrandsCtrl.fillSearchBrands(suggestedBrandsCtrl.temp.queryBrand, suggestedBrandsCtrl.currentCountryCode, suggestedBrandsCtrl.temp.selectedCategory)")#sb-brand.form-control
+          .dropdown-row.search-result
+            .btn-group.dropdown(dropdown is-open="suggestedBrandsCtrl.openBrandList")
+              ul.list-unstyled.dropdown-menu.list
+                li(ng-repeat="brand in suggestedBrandsCtrl.foundBrands")
+                  a(href="javascript:void(0)" ng-click="suggestedBrandsCtrl.setBrand(brand)").brand-name {{brand.title}}
+
+      div(ng-if="suggestedBrandsCtrl.currentBrand").form-group.row-current-brand.clearfix
+        .col-sm-6
+          .photo-box
+            img(src="{{suggestedBrandsCtrl.currentBrand.image + '?size=m'}}").photo-item#brand-photo-suggest
+        .col-sm-6
+          .as-table
+            .as-table-cell
+              a(href="javascript:void(0)" ng-click="suggestedBrandsCtrl.resetBrand(suggestedBrandsCtrl.temp.selectedCountry.key)").brand-title {{suggestedBrandsCtrl.currentBrand.title}}
+                span.glyphicon.glyphicon-remove
+
+    .part-footer
+      button(type="submit" ng-disabled="!suggestedBrandsCtrl.prevBrand && !suggestedBrandsCtrl.currentBrand").btn.btn-success Save

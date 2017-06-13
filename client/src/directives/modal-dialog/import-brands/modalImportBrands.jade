@@ -1,0 +1,44 @@
+#modal-dialog_import-brands
+
+  status-wall(ng-if="modalImportBrandsCtrl.onComplete.success" type="'success'" text="modalImportBrandsCtrl.onComplete.text" cb="modalImportBrandsCtrl.onComplete.cb" duration="modalImportBrandsCtrl.onComplete.duration")
+
+  form(name="importBrandsForm" role="form" novalidate ng-submit="modalImportBrandsCtrl.submit()")
+    .modal-header
+      h3.modal-title {{modalImportBrandsCtrl.title}}
+    .modal-body
+
+      .form-group
+        label.as-block Country List Title:
+        input(disabled ng-model="modalImportBrandsCtrl.list.title").form-control
+
+      .form-group.clearfix
+        label(for="re-images").as-block Rewrite images:
+        toggle-switch(type="checkbox" ng-model="modalImportBrandsCtrl.temp.rewriteImages")#re-images
+
+      .form-group.m-b-0.clearfix.file-row(ng-class="{'has-error': modalImportBrandsCtrl.errors.upload.length}")
+        label.as-block.required Choose file:
+        button(type="file" ngf-select ngf-pattern="modalImportBrandsCtrl.config.brandPattern" ngf-change="modalImportBrandsCtrl.uploadFile($file, $invalidFiles)")#import-brands.glyphicon.glyphicon-file.btn.btn-default {{modalImportBrandsCtrl.config.brandPattern}}
+
+        progressbar(ng-if="modalImportBrandsCtrl.importProgress.pt || modalImportBrandsCtrl.errors.upload.length" value="modalImportBrandsCtrl.importProgress.pt || modalImportBrandsCtrl.errors.upload.length" type="{{!modalImportBrandsCtrl.errors.upload.length ? 'success' : 'warning'}}")
+          span(ng-if="modalImportBrandsCtrl.importProgress.pt && !modalImportBrandsCtrl.errors.upload.length") {{modalImportBrandsCtrl.importProgress.pt}}%
+          ul(ng-if="modalImportBrandsCtrl.errors.upload.length").mgr-validation-messages
+            li(ng-repeat="error in modalImportBrandsCtrl.errors.upload track by $index").mgr-invalid
+              p {{error}}
+
+        ul(ng-if="modalImportBrandsCtrl.temp.importFile").mgr-validation-messages
+          li.mgr-valid
+            p.filename {{modalImportBrandsCtrl.temp.importFile.name}}
+
+        .messages-box(ng-if="modalImportBrandsCtrl.messages.length")
+          ul.mgr-validation-messages
+            li(ng-repeat="message in modalImportBrandsCtrl.messages track by $index").mgr-valid
+              p {{message}}
+
+        .errors-box(ng-if="modalImportBrandsCtrl.errors.import.length")
+          ul.mgr-validation-messages
+            li(ng-repeat="error in modalImportBrandsCtrl.errors.import track by $index").mgr-invalid
+              p {{error}}
+
+    .modal-footer.text-center
+      button(type="submit" ng-disabled="modalImportBrandsCtrl.errors.upload.length || !modalImportBrandsCtrl.temp.importFile").btn.btn-success Import
+      button(type="button" ng-click="modalImportBrandsCtrl.cancel()").btn.btn-warning Cancel

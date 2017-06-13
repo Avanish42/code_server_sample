@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Energy Drinks",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "Ready Mix",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "Wine",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "Vodka",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "Whisky",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "Milk Evaporated",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "cat01",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "",
+    "brands": []
+  },
+  {
+    "title": "",
+    "parentId": "",
+    "brands": []
+  }
+]

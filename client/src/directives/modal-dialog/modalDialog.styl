@@ -1,0 +1,46 @@
+@import "../../application/variables"
+
+/* LAYOUT */
+.tab-existing,
+.tab-employees,
+.tab-supplies
+
+  .as-table
+    border-bottom 1px solid #ccc
+
+  .table tr:first-child
+    td
+      border-top none
+
+div[id^='modal-dialog_add']
+
+  .form-group
+    margin-bottom 10px
+
+  .photo-item
+    max-height 100%
+
+  .photo-box
+    float left
+    width 125px
+    height 125px
+    margin-right 18px
+    text-align center
+    border 1px solid #ccc
+    overflow hidden
+    border-radius 3px
+
+  #add-photo
+    width 125px
+    height 125px
+    background #fff
+    border 1px solid #ccc
+    border-radius 3px
+    &:before
+      position relative
+      left 6px
+      font-size 26px
+    &:active
+      box-shadow inset 0 0 8px rgba(0,0,0,0.5)
+      &:before
+        color #000

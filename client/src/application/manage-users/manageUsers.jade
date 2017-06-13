@@ -1,0 +1,57 @@
+#manage-users.manage-page.container
+
+  .m-t-20.filters-sector.row
+    .lvl-1.clearfix
+      .col-sm-3.sm-m-b-10
+        strong New User
+        button(type="button" ng-click="manageUsersCtrl.addUser()").btn.btn-default.glyphicon.glyphicon-plus#add-user &nbsp;
+      .col-sm-5.sm-m-b-10
+        label(for="users-active").m-r-15 Show active users only
+        toggle-switch(type="checkbox" ng-model="manageUsersCtrl.filter.usersActive" ng-change="manageUsersCtrl.setTableFilter('checked', manageUsersCtrl.filter.usersActive)")#users-active
+      .col-sm-4.sm-m-b-10
+        .search-row
+          input(type="text" placeholder="Search" ng-model="manageUsersCtrl.filter.bySearch" ng-model-options='{debounce: 500}' ng-change="manageUsersCtrl.setTableFilter('search', {title: ['username', 'email', 'firstName', 'lastName', 'address.country', 'address.city'], value: manageUsersCtrl.filter.bySearch})")#search.form-control
+          span.input-group-btn
+            span.glyphicon.glyphicon-search &nbsp;
+    .lvl-2.m-t-20.clearfix
+      .col-sm-12
+        p.m-b-0
+          strong {{manageUsersCtrl.tableParams.total()}}
+          | &nbsp; users in the table
+
+  .m-t-20.table-container
+    table(ng-table="manageUsersCtrl.tableParams").table.table-striped.table-bordered.table-hover
+      tbody
+        tr(ng-repeat="user in $data track by user.id").user-row
+          td(title="'ID'" sortable="'id'").col-id
+            div {{user.id}}
+          td(title="'Photo'").col-photo
+            div(class="{{!user.photo ? 'no-image' : 'has-image'}}")
+              img(ng-if="user.photo" src="{{user.photo + '?size=m'}}")
+              span(ng-if="!user.photo") No image
+          td(title="'Username'").col-username
+            div {{user.username}}
+          td(title="'Email'").col-email
+            div {{user.email}}
+          td(title="'Status'").col-status
+            div
+              toggle-switch(type="checkbox" ng-model="user.status" ng-change="manageUsersCtrl.changeStatus(user)").users-status
+          td(title="'First Name'").col-firstname
+            div {{user.firstName}}
+          td(title="'Last Name'").col-lastname
+            div {{user.lastName}}
+          td(title="'Gender'").col-gender
+            div {{user.gender === 1 ? 'female' : (user.gender === 0 ? 'male' : '')}}
+          td(title="'D.O.B'" sortable="'createdAt'").col-dob
+            div
+              span(ng-if="user.dob" title="{{user.dob | amDateFormat:'DD.MM.YYYY'}}") {{user.dob | amDateFormat:'DD.MM.YYYY'}}
+          td(title="'Location'").col-location
+            div
+              span.as-block(title="{{user.address.country}}").country {{user.address.country}}
+              span.as-block(title="{{user.address.city}}").city {{user.address.city}}
+          td(title="'Income Range'" sortable="'incomeRange'").col-income
+            div {{user.incomeRange}}
+          td(title="'Actions'").col-actions
+            div
+              span(ng-click="manageUsersCtrl.userDelete(user.id, $event)").glyphicon.glyphicon-trash.delete &nbsp;
+              span(ng-click="manageUsersCtrl.userEdit(user, $event)").glyphicon.glyphicon-pencil.edit &nbsp;

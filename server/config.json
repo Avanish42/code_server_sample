@@ -1,0 +1,195 @@
+{
+  "remoting": {
+    "context": {
+      "enableHttpContext": true
+    },
+    "rest": {
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false,
+    "errorHandler": {
+      "disableStackTrace": false
+    }
+  },
+  "legacyExplorer": false,
+  "mainTitle": "BrandBeat",
+  "clientUrl": {
+    "local": "http://localhost:3203",
+    "dev": "http://brandbeat.frontend.mgrnix.com:23080",
+    "production": "http://128.199.191.185"
+  },
+  "apiUrl": {
+    "local": "http://localhost:3000",
+    "dev": "http://3203.frontend.mgrnix.com:23089",
+    "production": "http://128.199.191.185:3000"
+  },
+  "maxFileSize": 15,
+  "timeZone": "Asia/Dubai",
+
+  "validations": {
+    "password": {
+      "min": 6,
+      "pattern": "^[a-zA-Z0-9]+$"
+    },
+    "username": {
+      "max": 35,
+      "pattern": "^[a-zA-Z0-9]+$"
+    },
+    "firstName": {
+      "max": 35,
+      "pattern": "^[a-zA-Z0-9]+$"
+    },
+    "lastName": {
+      "max": 35,
+      "pattern": "^[a-zA-Z0-9]+$"
+    },
+    "phone": {
+      "min": 8
+    }
+  },
+
+  "feedsFollower": {
+    "maxInStack": 2
+  },
+  "lastViewedBrands": {
+    "limit": 10
+  },
+  "comparisonHistoryBrands": {
+    "keepDays": 30
+  },
+  "recommendations": {
+    "brandsMin": 50,
+    "periodBrandsMin": 5,
+    "periodDateFrom": 7,
+    "followersMin": 30
+  },
+  "reviewsDistance": {
+    "maxDistance": 50,
+    "unit": "kilometers"
+  },
+  "trendingRate": {
+    "maxBrands": 20,
+    "minVotes": 10
+  },
+  "trendingReviews": {
+    "maxReviews": 30
+  },
+  "systemNotifications": {
+    "durationDays": 7
+  },
+  "images": {
+    "uploadFormats": ["image/jpg", "image/jpeg", "image/png", "image/gif"],
+    "sizes": {
+      "s": [50, 50],
+      "m": [300, 300],
+      "l": [500, 500]
+    }
+  },
+  "availableCountry": "#generic",
+  "defaultUserSettings": {
+    "notifications": {
+      "comments": {
+        "push": true,
+        "email": true
+      },
+      "likes": {
+        "push": true,
+        "email": true
+      },
+      "replies": {
+        "push": true,
+        "email": true
+      },
+      "followers": {
+        "push": true,
+        "email": true
+      },
+      "achievements": {
+        "push": true,
+        "email": true
+      },
+      "system": {
+        "push": true,
+        "email": true
+      }
+    }
+  },
+  "achievementsConditions": {
+    "ach002": 0,
+    "ach02": 10,
+    "ach03": 50,
+    "ach04": 250,
+    "ach05": 20,
+    "ach06": 50,
+    "ach07": 100,
+    "ach11": 20,
+    "ach12": 50,
+    "ach13": 100,
+    "ach14": 14,
+    "ach15": 20,
+    "ach17": 30,
+    "ach18": {
+      "days": 365,
+      "minReviews": 20
+    },
+    "ach19": 20,
+    "ach20": 50,
+    "ach21": 150,
+    "ach22": 50,
+    "ach23": 100,
+    "ach24": 300,
+    "ach25": 10,
+    "ach26": 25,
+    "ach27": 60,
+    "ach28": 15,
+    "ach29": 30,
+    "ach30": 70,
+    "ach31": 15,
+    "ach32": 30,
+    "ach33": 70
+  },
+
+  "fbCredentials": {
+    "clientId": "220577918275312",
+    "clientSecret": "487383d1a27286a9967401f0cd84a7ba"
+  },
+  "googleCredentials": {
+    "clientId": "236527612706-hkjokt62qdoqil8mqivjuacdlask6dhu.apps.googleusercontent.com",
+    "clientSecret": "6RUlCy8i7a-cr8i40QWd8Mqc"
+  },
+  "twitterCredentials": {
+    "clientKey": "xWDrXhvipC0xdayJ3pwciIs2W",
+    "clientSecret": "AAMUeXbfAHyGTozgSkclkFdFE2u6q62IZX5nqvbptqEMrA6j4P"
+  },
+  "linkedinCredentials": {
+    "clientKey": "77ie0kqofltru5",
+    "clientSecret": "AZs21M3ZtNUxGBbZ",
+    "redirectUri": "",
+    "grantType": "authorization_code"
+  },
+  "defaultUsers": {
+    "users": [
+      {
+        "email": "user01@3dom.in",
+        "username": "user01",
+        "password": "123456"
+      }
+    ],
+    "roles": [
+      { "name": "administrator" }
+    ]
+  },
+  "defaultRoles": [
+    { "name": "administrator" },
+    { "name": "user" }
+  ]
+}

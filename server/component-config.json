@@ -1,0 +1,170 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer"
+  },
+  "./components/sign-up-email": {
+    "url": "/registration/internal"
+  },
+  "./components/user-search": {
+    "url": "/user/search"
+  },
+  "./components/sign-in-email": {
+    "url": "/auth/internal"
+  },
+  "./components/sign-in-socials": {
+    "url": "/auth/social"
+  },
+  "./components/user-edit": {
+    "url": "/user/edit"
+  },
+  "./components/change-password": {
+    "url": "/change-password"
+  },
+  "./components/logout": {
+    "url": "/logout"
+  },
+  "./components/refresh-token": {
+    "url": "/auth/token"
+  },
+  "./components/update-meta": {
+    "url": "/auth/meta"
+  },
+  "./components/categories-list": {
+    "url": "/categories"
+  },
+  "./components/category-details": {
+    "url": "/categories/:id"
+  },
+  "./components/category-brands": {
+    "url": "/categories/:id/brands"
+  },
+  "./components/categories-interests": {
+    "url": ["/interests/categories", "/interests/categories/deletes"]
+  },
+  "./components/subcategories-list": {
+    "url": "/subcategories"
+  },
+  "./components/subcategory-details": {
+    "url": "/subcategories/:id"
+  },
+  "./components/subcategories-interests": {
+    "url": ["/interests/subcategories", "/interests/subcategories/deletes"]
+  },
+  "./components/brands": {
+    "url": "/brands"
+  },
+  "./components/brand-details": {
+    "url": "/brands/:id"
+  },
+  "./components/brand-reviews": {
+    "url": "/brands/:id/reviews"
+  },
+  "./components/brand-reviews-stats": {
+    "url": "/brands/:id/reviews/stats"
+  },
+  "./components/brands-interests": {
+    "url": ["/interests/brands", "/interests/brands/deletes"]
+  },
+  "./components/last-viewed-brands": {
+    "url": "/last-viewed/brands"
+  },
+  "./components/brands-comparison": {
+    "url": "/brands/comparison"
+  },
+  "./components/brands-trending": {
+    "url": "/trending-rate/brands"
+  },
+  "./components/history-brands": {
+    "url": "/history/brands"
+  },
+  "./components/user-info": {
+    "url": "/user/:id/info"
+  },
+  "./components/user-find": {
+    "url": "/user/find"
+  },
+  "./components/user-update-location": {
+    "url": "/user/update/location"
+  },
+  "./components/user-reviews": {
+    "url": "/user/:id/reviews"
+  },
+  "./components/user-subscribe": {
+    "url": "/user/:id/subscribe"
+  },
+  "./components/user-unsubscribe": {
+    "url": "/user/:id/unsubscribe"
+  },
+  "./components/user-achievements": {
+    "url": "/user/:id/achievements"
+  },
+  "./components/user-subscriptions": {
+    "url": "/user/subscriptions"
+  },
+  "./components/user-subscribers": {
+    "url": "/user/subscribers"
+  },
+  "./components/reviews-search": {
+    "url": "/feeds"
+  },
+  "./components/reviews-local": {
+    "url": "/feeds/local"
+  },
+  "./components/reviews-follower": {
+    "url": "/feeds/follower"
+  },
+  "./components/review-likes": {
+    "url": "/feeds/:id/like"
+  },
+  "./components/review": {
+    "url": "/feeds/:id/"
+  },
+  "./components/reviews": {
+    "url": "/reviews"
+  },
+  "./components/reviews-comments": {
+    "url": "/feeds/:id/comments"
+  },
+  "./components/comments-comments": {
+    "url": "/comments/:id/comments"
+  },
+  "./components/comments": {
+    "url": "/comments/:id"
+  },
+  "./components/comment-likes": {
+    "url": "/comments/:id/like"
+  },
+  "./components/comment-index": {
+    "url": "/comments/:id/index"
+  },
+  "./components/recommendations": {
+    "url": "/recommendations"
+  },
+  "./components/reset-password-request": {
+    "url": "/reset-password-request"
+  },
+  "./components/achievements": {
+    "url": "/achievements"
+  },
+  "./components/storage-upload": {
+    "url": "/storage/:container/upload"
+  },
+  "./components/storage-delete": {
+    "url": "/storage/:container/:file"
+  },
+  "./components/notifications": {
+    "url": "/notifications"
+  },
+  "./components/notification-details": {
+    "url": "/notifications/:id"
+  },
+  "./components/notifications-counter": {
+    "url": "/notifications-counter"
+  },
+  "./components/notifications-manage": {
+    "url": "/notifications-manage"
+  },
+  "./components/income-ranges": {
+    "url": "/income-ranges"
+  }
+}

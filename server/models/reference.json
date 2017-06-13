@@ -1,0 +1,37 @@
+{
+  "name": "Reference",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "keyInt": {
+      "type": "number"
+    },
+    "value": {
+      "type": "string"
+    },
+    "valueInt": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
